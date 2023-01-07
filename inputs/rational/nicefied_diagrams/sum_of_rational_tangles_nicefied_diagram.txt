@@ -1,0 +1,2268 @@
+Number of generators of the diagram: 398
+Number of regions of the diagram: 44
+Number of cycle of the algorithm: 4 
+
+
+
+
+
+--------------------------------------------------
+This is the string to copy and paste as PQM.m Mathematica Package input:
+
+
+regionsInput = ( {{1,2,1,6,19},{2,19,6,5,20},{3,33,3,4,34},{4,32,27,3,33},{5,15,2,19,35},{6,23,18,17,24},{7,1,45,46,6},{8,44,5,6,46},{9,31,28,27,32},{10,25,22,21,26},{11,29,30,\[Placeholder],\[Placeholder]},{12,30,29,28,31},{13,15,16,\[Placeholder],\[Placeholder]},{14,17,16,\[Placeholder],\[Placeholder]},{15,20,5,26,21},{16,35,19,20,36},{17,39,23,24,40},{18,37,21,22,38},{19,41,25,26,42},{20,38,22,23,39},{21,40,24,25,41},{22,36,20,21,37},{23,34,4,1,2},{24,34,9,10,33},{25,33,10,11,32},{26,28,7,12,27},{27,32,11,8,31},{28,30,13,14,29},{29,29,14,7,28},{30,31,8,13,30},{31,42,26,5,44},{32,36,7,14,35},{33,40,11,10,39},{34,38,9,12,37},{35,42,13,8,41},{36,39,10,9,38},{37,41,8,11,40},{38,37,12,7,36},{39,43,4,3,18},{40,45,1,4,43},{41,46,45,43,44},{42,45,46,\[Placeholder],\[Placeholder]}} ); 
+ 
+alphasInput = ( {{1,{1, 2, 15, 16, 17, 24, 40, 11, 32, 27, 12, 37, 21, 26, 42, 13, 30, 29, 14, 35, 19, 6, 46, 45}},{2,{3, 33, 10, 39, 23, 18}},{3,{4, 34, 9, 38, 22, 25, 41, 8, 31, 28, 7, 36, 20, 5, 44, 43}}} ); 
+ 
+betasInput = ( {{1, {1, 6, 5, 26, 25, 24, 23, 22, 21, 20, 19, 2, 34, 33, 32, 31, 30, 29, 28, 27, 3, 4}},{2, {7, 14, 13, 8, 11, 10, 9, 12}},{3, {15, 35, 36, 37, 38, 39, 40, 41, 42, 44, 46, 45, 43, 18, 17, 16}}} ); 
+ 
+cancellationSortListInput = ( { } ); 
+ 
+alphaArcs = ( {{"a",{46, 45, 1, 2, 15}},{"b",{16}},{"c",{17, 24, 40, 11, 32, 27, 12, 37, 21, 26, 42, 13, 30}},{"d",{29, 14, 35, 19, 6}}} ); 
+ 
+basepointRegions = ( {{7, p,{-1,0},-2},{8, q,{-1,0},-2},{11, p,{0,1},-2},{12, q,{0,1},-2},{13, q,{0,-1},-2},{14, p,{1,0},-2}} ); 
+ 
+multiplicity0Regions = ( {{43,{{3,27},{12,9},{34,2},{15,16},{17,18}},{1,0},-4},{44,{{17,16},{15,35},{14,13},{42,44},{43,18},{23,22},{25,24}},{0,-1},-8}} ); 
+ 
+
+--------------------------------------------------
+
+These are the intermediate step, including the starting diagram and the finishing one:
+-----------------------------------------------------------------------------
+
+Step number 0:	STARTING DIAGRAM 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 2
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 3
+			Ordered list of badnesses and respectively regions: [(-2, Region 4), (-1, Region 5)]
+			Total badness of distance 2: 2
+			Ordered list of badnesses and respectively regions: [(-2, Region 1)]
+
+	Number of regions: 16
+	Number of intersection points: 18
+	Number of border points: 0
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [1, 2, 5, 7, 12, 13, 14, 6]
+			Badness: 2
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [6, 14, 7, 5]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [3, 10, 9, 4]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 4:
+			Input: [2, 1, 4, 9, 12, 11, 10, 3]
+			Badness: 2
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 2, 15, 18, 3]
+			Badness: 1
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [11, 17, 18, 10]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [11, 12, 7, 8]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 10:
+			Input: [9, 8, 13, 12]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 11:
+			Input: [13, 14]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 12:
+			Input: [14, 13, 8, 7]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 13:
+			Input: [15, 16, 17, 11, 8, 9, 10, 18]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 3, 18]
+			Badness: 1
+			Distance: 0
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 1: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 5
+			Ordered list of badnesses and respectively regions: [(-3, Region 5), (-2, Region 4)]
+
+	Number of regions: 24
+	Number of intersection points: 26
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 1
+		Edge modified: [2, 5]
+		Ending region: Region 1
+		Neighbor region: Region 5
+		Middle regions:
+			Region 2
+			Region 17
+			Region 10
+			Region 13
+			Region 6
+			Region 13
+			Region 10
+			Region 1
+		Edges crossed:
+			[14, 6]
+			[7, 5]
+			[12, 13]
+			[9, 8]
+			[10, 18]
+			[11, 17]
+			[8, 9]
+			[13, 12]
+			[14, 6]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [3, 10, 9, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [2, 1, 4, 9, 12, 11, 10, 3]
+			Badness: 2
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 26, 13, 14, 19, 2, 15, 18, 3]
+			Badness: 3
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [11, 12, 7, 8]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [13, 14]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [14, 13, 8, 7]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 15, 16, 17, 24]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 3, 18]
+			Badness: 1
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [19, 14, 7, 20]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [23, 10, 11, 24]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [21, 12, 9, 22]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [25, 8, 13, 26]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [22, 9, 10, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [24, 11, 8, 25]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [20, 7, 12, 21]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 2: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 3
+			Ordered list of badnesses and respectively regions: [(-3, Region 5)]
+
+	Number of regions: 32
+	Number of intersection points: 34
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 4
+		Edge modified: [3, 2]
+		Ending region: Region 4
+		Neighbor region: Region 16
+		Middle regions:
+			Region 9
+			Region 12
+			Region 11
+			Region 12
+			Region 9
+			Region 4
+			Region 3
+			Region 4
+		Edges crossed:
+			[12, 11]
+			[7, 8]
+			[14, 13]
+			[13, 14]
+			[8, 7]
+			[11, 12]
+			[10, 3]
+			[9, 4]
+			[12, 11]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 26, 13, 14, 19, 2, 15, 18, 3]
+			Badness: 3
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 15, 16, 17, 24]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [19, 14, 7, 20]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [23, 10, 11, 24]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [21, 12, 9, 22]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 21:
+			Input: [25, 8, 13, 26]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 22:
+			Input: [22, 9, 10, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [24, 11, 8, 25]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [20, 7, 12, 21]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 3: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 1
+			Ordered list of badnesses and respectively regions: [(-1, Region 33)]
+
+	Number of regions: 40
+	Number of intersection points: 42
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 5
+		Edge modified: [15, 18]
+		Ending region: Region 5
+		Neighbor region: Region 13
+		Middle regions:
+			Region 18
+			Region 24
+			Region 20
+			Region 22
+			Region 19
+			Region 23
+			Region 21
+			Region 5
+		Edges crossed:
+			[14, 19]
+			[7, 20]
+			[12, 21]
+			[9, 22]
+			[10, 23]
+			[11, 24]
+			[8, 25]
+			[13, 26]
+			[14, 19]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [35, 19, 2, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 7
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 42, 13, 14, 35, 15, 16, 17, 24]
+			Badness: 4
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [36, 20, 19, 35]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [40, 24, 23, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [38, 22, 21, 37]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [42, 26, 25, 41]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [39, 23, 22, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [41, 25, 24, 40]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [37, 21, 20, 36]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 33:
+			Input: [18, 3, 4, 5, 26, 42]
+			Badness: 1
+			Distance: 1
+			Is a border region: False
+
+		Region 34:
+			Input: [35, 14, 7, 36]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 35:
+			Input: [39, 10, 11, 40]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 36:
+			Input: [37, 12, 9, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 37:
+			Input: [41, 8, 13, 42]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 38:
+			Input: [38, 9, 10, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 39:
+			Input: [40, 11, 8, 41]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 40:
+			Input: [36, 7, 12, 37]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 4:	FINAL DIAGRAM 
+Details of the Heegaard diagram:
+
+	Is it nice: True
+
+	Number of regions: 44
+	Number of intersection points: 46
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Finger move
+		Starting region: Region 33
+		Edge modified: [42, 18]
+		Ending region: Region 7
+		Neighbor region: Region 13
+		Middle regions:
+			Region 8
+		Edges crossed:
+			[4, 5]
+			[1, 6]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [35, 19, 2, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 46, 45, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [46, 6, 5, 44]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 9
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 43, 44, 42, 13, 14, 35, 15, 16, 17, 24]
+			Badness: 5
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [36, 20, 19, 35]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 19:
+			Input: [40, 24, 23, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [38, 22, 21, 37]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [42, 26, 25, 41]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [39, 23, 22, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [41, 25, 24, 40]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [37, 21, 20, 36]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 8
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 33:
+			Input: [44, 5, 26, 42]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 34:
+			Input: [35, 14, 7, 36]
+			Badness: 0
+			Distance: 7
+			Is a border region: False
+
+		Region 35:
+			Input: [39, 10, 11, 40]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 36:
+			Input: [37, 12, 9, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 37:
+			Input: [41, 8, 13, 42]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 38:
+			Input: [38, 9, 10, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 39:
+			Input: [40, 11, 8, 41]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 40:
+			Input: [36, 7, 12, 37]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 41:
+			Input: [18, 3, 4, 43]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 42:
+			Input: [43, 4, 1, 45]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 43:
+			Input: [44, 43, 45, 46]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 44:
+			Input: [46, 45]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
+
+These are the intermediate step, including the starting diagram and the finishing one:
+-----------------------------------------------------------------------------
+
+Step number 0:	STARTING DIAGRAM 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 2
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 3
+			Ordered list of badnesses and respectively regions: [(-2, Region 4), (-1, Region 5)]
+			Total badness of distance 2: 2
+			Ordered list of badnesses and respectively regions: [(-2, Region 1)]
+
+	Number of regions: 16
+	Number of intersection points: 18
+	Number of border points: 0
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [1, 2, 5, 7, 12, 13, 14, 6]
+			Badness: 2
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [6, 14, 7, 5]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [3, 10, 9, 4]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 4:
+			Input: [2, 1, 4, 9, 12, 11, 10, 3]
+			Badness: 2
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 2, 15, 18, 3]
+			Badness: 1
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [11, 17, 18, 10]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [11, 12, 7, 8]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 10:
+			Input: [9, 8, 13, 12]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 11:
+			Input: [13, 14]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 12:
+			Input: [14, 13, 8, 7]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 13:
+			Input: [15, 16, 17, 11, 8, 9, 10, 18]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 3, 18]
+			Badness: 1
+			Distance: 0
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 1: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 5
+			Ordered list of badnesses and respectively regions: [(-3, Region 5), (-2, Region 4)]
+
+	Number of regions: 24
+	Number of intersection points: 26
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 1
+		Edge modified: [2, 5]
+		Ending region: Region 1
+		Neighbor region: Region 5
+		Middle regions:
+			Region 2
+			Region 17
+			Region 10
+			Region 13
+			Region 6
+			Region 13
+			Region 10
+			Region 1
+		Edges crossed:
+			[14, 6]
+			[7, 5]
+			[12, 13]
+			[9, 8]
+			[10, 18]
+			[11, 17]
+			[8, 9]
+			[13, 12]
+			[14, 6]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [3, 10, 9, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [2, 1, 4, 9, 12, 11, 10, 3]
+			Badness: 2
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 26, 13, 14, 19, 2, 15, 18, 3]
+			Badness: 3
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [11, 12, 7, 8]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [13, 14]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [14, 13, 8, 7]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 15, 16, 17, 24]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 3, 18]
+			Badness: 1
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [19, 14, 7, 20]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [23, 10, 11, 24]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [21, 12, 9, 22]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [25, 8, 13, 26]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [22, 9, 10, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [24, 11, 8, 25]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [20, 7, 12, 21]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 2: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 3
+			Ordered list of badnesses and respectively regions: [(-3, Region 5)]
+
+	Number of regions: 32
+	Number of intersection points: 34
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 4
+		Edge modified: [3, 2]
+		Ending region: Region 4
+		Neighbor region: Region 16
+		Middle regions:
+			Region 9
+			Region 12
+			Region 11
+			Region 12
+			Region 9
+			Region 4
+			Region 3
+			Region 4
+		Edges crossed:
+			[12, 11]
+			[7, 8]
+			[14, 13]
+			[13, 14]
+			[8, 7]
+			[11, 12]
+			[10, 3]
+			[9, 4]
+			[12, 11]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [4, 5, 26, 13, 14, 19, 2, 15, 18, 3]
+			Badness: 3
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 15, 16, 17, 24]
+			Badness: 2
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [19, 14, 7, 20]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [23, 10, 11, 24]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [21, 12, 9, 22]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 21:
+			Input: [25, 8, 13, 26]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 22:
+			Input: [22, 9, 10, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [24, 11, 8, 25]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [20, 7, 12, 21]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 3: 
+Details of the Heegaard diagram:
+
+	Is it nice: False
+
+		Distance of the diagram: 1
+		Distance complexities of the diagram: 
+			Total badness of distance 1: 1
+			Ordered list of badnesses and respectively regions: [(-1, Region 33)]
+
+	Number of regions: 40
+	Number of intersection points: 42
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Generalized handleslide
+		Starting region: Region 5
+		Edge modified: [15, 18]
+		Ending region: Region 5
+		Neighbor region: Region 13
+		Middle regions:
+			Region 18
+			Region 24
+			Region 20
+			Region 22
+			Region 19
+			Region 23
+			Region 21
+			Region 5
+		Edges crossed:
+			[14, 19]
+			[7, 20]
+			[12, 21]
+			[9, 22]
+			[10, 23]
+			[11, 24]
+			[8, 25]
+			[13, 26]
+			[14, 19]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [35, 19, 2, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [1, 6, 5, 4]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 7
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 42, 13, 14, 35, 15, 16, 17, 24]
+			Badness: 4
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [36, 20, 19, 35]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 19:
+			Input: [40, 24, 23, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [38, 22, 21, 37]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [42, 26, 25, 41]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [39, 23, 22, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [41, 25, 24, 40]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [37, 21, 20, 36]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 33:
+			Input: [18, 3, 4, 5, 26, 42]
+			Badness: 1
+			Distance: 1
+			Is a border region: False
+
+		Region 34:
+			Input: [35, 14, 7, 36]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 35:
+			Input: [39, 10, 11, 40]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 36:
+			Input: [37, 12, 9, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 37:
+			Input: [41, 8, 13, 42]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 38:
+			Input: [38, 9, 10, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 39:
+			Input: [40, 11, 8, 41]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 40:
+			Input: [36, 7, 12, 37]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
+-----------------------------------------------------------------------------
+
+Step number 4:	FINAL DIAGRAM 
+Details of the Heegaard diagram:
+
+	Is it nice: True
+
+	Number of regions: 44
+	Number of intersection points: 46
+	Number of border points: 0
+
+	Regions of the last diagram that we modified: 
+		Type of move: Finger move
+		Starting region: Region 33
+		Edge modified: [42, 18]
+		Ending region: Region 7
+		Neighbor region: Region 13
+		Middle regions:
+			Region 8
+		Edges crossed:
+			[4, 5]
+			[1, 6]
+
+	Regions of the diagram: 
+		Region 1:
+			Input: [19, 6, 1, 2]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 2:
+			Input: [20, 5, 6, 19]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 3:
+			Input: [34, 4, 3, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 4:
+			Input: [33, 3, 27, 32]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 5:
+			Input: [35, 19, 2, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 6:
+			Input: [24, 17, 18, 23]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 7:
+			Input: [6, 46, 45, 1]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 8:
+			Input: [46, 6, 5, 44]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 9:
+			Input: [32, 27, 28, 31]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 10:
+			Input: [26, 21, 22, 25]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 11:
+			Input: [30, 29]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 12:
+			Input: [31, 28, 29, 30]
+			Badness: 0
+			Distance: 9
+			Is a border region: False
+
+		Region 13:
+			Input: [25, 22, 23, 18, 43, 44, 42, 13, 14, 35, 15, 16, 17, 24]
+			Badness: 5
+			Distance: 0
+			Is a border region: False
+
+		Region 14:
+			Input: [16, 15]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 15:
+			Input: [16, 17]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 16:
+			Input: [17, 16, 15, 2, 34, 9, 12, 27, 3, 18]
+			Badness: 3
+			Distance: 0
+			Is a border region: False
+
+		Region 17:
+			Input: [21, 26, 5, 20]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 18:
+			Input: [36, 20, 19, 35]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 19:
+			Input: [40, 24, 23, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 20:
+			Input: [38, 22, 21, 37]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 21:
+			Input: [42, 26, 25, 41]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 22:
+			Input: [39, 23, 22, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 23:
+			Input: [41, 25, 24, 40]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 24:
+			Input: [37, 21, 20, 36]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 25:
+			Input: [2, 1, 4, 34]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 26:
+			Input: [33, 10, 9, 34]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 27:
+			Input: [32, 11, 10, 33]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 28:
+			Input: [27, 12, 7, 28]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 29:
+			Input: [31, 8, 11, 32]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 30:
+			Input: [29, 14, 13, 30]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 31:
+			Input: [28, 7, 14, 29]
+			Badness: 0
+			Distance: 8
+			Is a border region: False
+
+		Region 32:
+			Input: [30, 13, 8, 31]
+			Badness: 0
+			Distance: 6
+			Is a border region: False
+
+		Region 33:
+			Input: [44, 5, 26, 42]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 34:
+			Input: [35, 14, 7, 36]
+			Badness: 0
+			Distance: 7
+			Is a border region: False
+
+		Region 35:
+			Input: [39, 10, 11, 40]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 36:
+			Input: [37, 12, 9, 38]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 37:
+			Input: [41, 8, 13, 42]
+			Badness: 0
+			Distance: 5
+			Is a border region: False
+
+		Region 38:
+			Input: [38, 9, 10, 39]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 39:
+			Input: [40, 11, 8, 41]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 40:
+			Input: [36, 7, 12, 37]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+		Region 41:
+			Input: [18, 3, 4, 43]
+			Badness: 0
+			Distance: 1
+			Is a border region: False
+
+		Region 42:
+			Input: [43, 4, 1, 45]
+			Badness: 0
+			Distance: 2
+			Is a border region: False
+
+		Region 43:
+			Input: [44, 43, 45, 46]
+			Badness: 0
+			Distance: 3
+			Is a border region: False
+
+		Region 44:
+			Input: [46, 45]
+			Badness: 0
+			Distance: 4
+			Is a border region: False
+
+
+
