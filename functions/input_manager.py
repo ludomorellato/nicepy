@@ -146,7 +146,7 @@ def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
             # possibilities in the basepoints placement
             # We define the class Heegaard_diagram for this diagram. Within this definiton,
             # we generate the regions as classes, we compute the lists of lists of circles and arcs
-            # we do a first sanity check and we compute neighbors and distances for every region.
+            # we do a first sanity check and we compute neighbours and distances for every region.
             first_diagram = Heegaard_diagram(number_intersection_points, number_border_points, regions_input, basepoints_dictionary, False)
 
             multiple_basepoints_dictionaries = find_possible_mulitplicity_zero_regions(first_diagram)
@@ -233,7 +233,7 @@ def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
             # We define only the Heegaard diagram given as input.
             # We define the class Heegaard_diagram for this diagram. Within this definiton,
             # we generate the regions as classes, we compute the lists of lists of circles and arcs
-            # we do a first sanity check and we compute neighbors and distances for every region.
+            # we do a first sanity check and we compute neighbours and distances for every region.
             diagram = Heegaard_diagram(number_intersection_points, number_border_points, regions_input, basepoints_dictionary, False)
 
 
@@ -292,7 +292,7 @@ def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
 
         # We define the class Heegaard_diagram for this diagram. Within this definiton,
         # we generate the regions as classes, we compute the lists of lists of circles and arcs
-        # we do a first sanity check and we compute neighbors and distances for every region.
+        # we do a first sanity check and we compute neighbours and distances for every region.
         diagram = Heegaard_diagram(number_intersection_points, number_border_points, deepcopy(regions_input), multiple_basepoints_dictionaries[0], False)
         
         # We give out the diagram and the list of the order for the nicefications (i.e. only the index 0 in this case)
@@ -457,7 +457,7 @@ def rational_diagram(inputstream, type_of_diagram, parameters_dict):
     # We create the first diagram by hand
     # We define the class Heegaard_diagram for this diagram. Within this definiton,
 	# we generate the regions as classes, we compute the lists of lists of circles and arcs
-	# we do a first sanity check and we compute neighbors and distances for every region.
+	# we do a first sanity check and we compute neighbours and distances for every region.
     possible_diagrams[0] = Heegaard_diagram(number_intersection_points, number_border_points, deepcopy(regions_input), multiple_basepoints_dictionaries[0], False)
 
 

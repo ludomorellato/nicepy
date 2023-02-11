@@ -7,7 +7,7 @@ def generalized_handleslide_searcher(diagram, starting_region_label, edge_to_mod
 
 	starting_region = diagram.regions[starting_region_label].input
 
-	possible_couple_edges = neighbor_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_modify_index)
+	possible_couple_edges = neighbour_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_modify_index)
 	
 	possible_generalized_handleslides = dict()
 
@@ -36,7 +36,7 @@ def generalized_handleslide_searcher(diagram, starting_region_label, edge_to_mod
 
 
 
-def neighbor_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_modify_index):
+def neighbour_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_modify_index):
 
 	# As first check, if we only have one blue circle we don't
 	# have any chance; therefore we return False
@@ -284,10 +284,10 @@ def neighbor_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_mod
 			# We check on all the other indicies
 			for other_index in edges_found.keys():
 
-				# If the distance is 2, they are neighbor in starting_region
+				# If the distance is 2, they are neighbour in starting_region
 				if (abs(index - other_index) == 2) or (abs(index - other_index) == number_edges_starting_regions - 2):
 
-					# They are neighbor: we save them in the dictionary using the red edge 
+					# They are neighbour: we save them in the dictionary using the red edge 
 					# in the middle as key and saving also the circle that they are on
 
 					# We need to understand whether index > other_index or the other way around
@@ -414,8 +414,8 @@ def generalized_handleslide_construction(diagram, starting_region_label, edge_to
 	while circle_set:
 
 		red_edge_temp = edges_to_go_through[-1]
-		# We look for the right neighbor
-		for (candidate_region, candidate_edge) in middle_region.red_neighbors:
+		# We look for the right neighbour
+		for (candidate_region, candidate_edge) in middle_region.red_neighbours:
 			
 			if candidate_edge == red_edge_temp:
 

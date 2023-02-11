@@ -166,7 +166,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 1
 		Edge modified: [2, 5]
 		Ending region: Region 1
-		Neighbor region: Region 5
+		neighbour region: Region 5
 		Middle regions:
 			Region 2
 			Region 17
@@ -355,7 +355,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 4
 		Edge modified: [3, 2]
 		Ending region: Region 4
-		Neighbor region: Region 16
+		neighbour region: Region 16
 		Middle regions:
 			Region 9
 			Region 12
@@ -592,7 +592,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 5
 		Edge modified: [15, 18]
 		Ending region: Region 5
-		Neighbor region: Region 13
+		neighbour region: Region 13
 		Middle regions:
 			Region 18
 			Region 24
@@ -872,7 +872,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 33
 		Edge modified: [42, 18]
 		Ending region: Region 7
-		Neighbor region: Region 13
+		neighbour region: Region 13
 		Middle regions:
 			Region 8
 		Edges crossed:
@@ -1286,7 +1286,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 1
 		Edge modified: [2, 5]
 		Ending region: Region 1
-		Neighbor region: Region 5
+		neighbour region: Region 5
 		Middle regions:
 			Region 2
 			Region 17
@@ -1475,7 +1475,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 4
 		Edge modified: [3, 2]
 		Ending region: Region 4
-		Neighbor region: Region 16
+		neighbour region: Region 16
 		Middle regions:
 			Region 9
 			Region 12
@@ -1712,7 +1712,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 5
 		Edge modified: [15, 18]
 		Ending region: Region 5
-		Neighbor region: Region 13
+		neighbour region: Region 13
 		Middle regions:
 			Region 18
 			Region 24
@@ -1992,7 +1992,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 33
 		Edge modified: [42, 18]
 		Ending region: Region 7
-		Neighbor region: Region 13
+		neighbour region: Region 13
 		Middle regions:
 			Region 8
 		Edges crossed:

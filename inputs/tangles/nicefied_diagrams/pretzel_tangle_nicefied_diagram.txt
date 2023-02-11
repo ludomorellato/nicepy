@@ -152,7 +152,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 6
 		Edge modified: [3, 6]
 		Ending region: Region 6
-		Neighbor region: Region 4
+		neighbour region: Region 4
 		Middle regions:
 			Region 7
 			Region 15
@@ -324,7 +324,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 5
 		Edge modified: [4, 2]
 		Ending region: Region 5
-		Neighbor region: Region 2
+		neighbour region: Region 2
 		Middle regions:
 			Region 8
 			Region 23
@@ -654,7 +654,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 6
 		Edge modified: [3, 6]
 		Ending region: Region 6
-		Neighbor region: Region 4
+		neighbour region: Region 4
 		Middle regions:
 			Region 7
 			Region 15
@@ -826,7 +826,7 @@ Details of the Heegaard diagram:
 		Starting region: Region 5
 		Edge modified: [4, 2]
 		Ending region: Region 5
-		Neighbor region: Region 2
+		neighbour region: Region 2
 		Middle regions:
 			Region 8
 			Region 23

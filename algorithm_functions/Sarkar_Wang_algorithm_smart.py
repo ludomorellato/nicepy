@@ -3,7 +3,7 @@ import copy
 
 from algorithm_functions.finger_move import finger_move
 from algorithm_functions.handle_slide import handle_slide
-from algorithm_functions.find_the_best_move import find_the_best_move, exploring_the_neighbors
+from algorithm_functions.find_the_best_move import find_the_best_move, exploring_the_neighbours
 from algorithm_functions.generalized_handleslide_searcher import generalized_handleslide_searcher
 from algorithm_functions.generalized_handle_slide import generalized_handle_slide
 from algorithm_functions.compare_possible_diagrams import compare_possible_diagrams
@@ -27,9 +27,9 @@ def Sarkar_Wang_algorithm_smart(diagram):
 		# Whatever the move, we'll start from this region
 		starting_region_label = bad_region_to_modify.label
 		
-		# We find a neighbor region with stricly lesser distance
-		for (neighbor, edge_to_modify) in bad_region_to_modify.blue_neighbors:
-			if neighbor.distance < bad_region_to_modify.distance:
+		# We find a neighbour region with stricly lesser distance
+		for (neighbour, edge_to_modify) in bad_region_to_modify.blue_neighbours:
+			if neighbour.distance < bad_region_to_modify.distance:
 				break 
 		
 		# We understand which is the second red edge after edge_to_modify
@@ -40,9 +40,9 @@ def Sarkar_Wang_algorithm_smart(diagram):
 		'''
 		# OLD VARIANT
 
-		# We now go exploring the neighbors, pushing our finger through the rectangular regions and 
+		# We now go exploring the neighbours, pushing our finger through the rectangular regions and 
 		# stopping if we finish in a non-rectangular region
-		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbors(bad_region_to_modify, first_red_edge_algorithm_index)
+		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbours(bad_region_to_modify, first_red_edge_algorithm_index)
 		'''
 
 
@@ -94,7 +94,7 @@ def Sarkar_Wang_algorithm_smart(diagram):
 
 
 			# We update the diagram's attribute about what regions we are going to modify
-			possible_future_diagrams[('generalized_handleslide', key)].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [starting_region_label, neighbor.label, 'Generalized handleslide']
+			possible_future_diagrams[('generalized_handleslide', key)].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [starting_region_label, neighbour.label, 'Generalized handleslide']
 
 			# And we do the move
 			generalized_handle_slide(possible_future_diagrams[('generalized_handleslide', key)], starting_region_label, regions_to_go_through, edges_to_go_through, edge_to_slide)
@@ -170,9 +170,9 @@ def Sarkar_Wang_algorithm_smart(diagram):
 						# We then understand the index of the first red edge to cut through
 						first_edge_to_go_through_index = (edge_to_modify_index + counter_new_index) % bad_region_to_modify.number_edges
 
-						# We now go exploring the neighbors, pushing our finger through the rectangular regions and 
+						# We now go exploring the neighbours, pushing our finger through the rectangular regions and 
 						# stopping if we finish in a non-rectangular region
-						(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index)
+						(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbours(bad_region_to_modify, first_edge_to_go_through_index)
 
 						# We need to check if we can end the loop or if we need to iterate again
 						if last_region.label == bad_region_to_modify.label:
@@ -230,7 +230,7 @@ def Sarkar_Wang_algorithm_smart(diagram):
 				ending_region_label = last_region.label
 
 				# We update the diagram's attribute about what regions we are going to modify
-				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbor.label, 'Finger move']
+				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbour.label, 'Finger move']
 
 				# We operate the move
 				finger_move(possible_future_diagrams[key], starting_region_label, ending_region_label, regions_to_go_through, edges_to_go_through, edge_to_modify)
@@ -244,7 +244,7 @@ def Sarkar_Wang_algorithm_smart(diagram):
 				ending_region_label = last_region.label
 
 				# We update the diagram's attribute about what regions we are going to modify
-				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbor.label, 'Finger move']
+				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbour.label, 'Finger move']
 
 				# We operate the move
 				finger_move(possible_future_diagrams[key], starting_region_label, ending_region_label, regions_to_go_through, edges_to_go_through, edge_to_modify)
@@ -258,7 +258,7 @@ def Sarkar_Wang_algorithm_smart(diagram):
 				ending_region_label = last_region.label
 
 				# We update the diagram's attribute about what regions we are going to modify
-				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbor.label, 'Finger move']
+				possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [ending_region_label, neighbour.label, 'Finger move']
 
 				# We operate the move
 				finger_move(possible_future_diagrams[key], starting_region_label, ending_region_label, regions_to_go_through, edges_to_go_through, edge_to_modify)
@@ -280,7 +280,7 @@ def Sarkar_Wang_algorithm_smart(diagram):
 					# In this case we do an handle slide
 
 					# We update the diagram's attribute about what regions we are going to modify
-					possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [starting_region_label, neighbor.label, 'Handle slide']
+					possible_future_diagrams[key].last_diagram_regions_modified = [starting_region_label] + [edge_to_modify] + [regions_to_go_through] + [edges_to_go_through] + [starting_region_label, neighbour.label, 'Handle slide']
 
 					# We operate the move
 					handle_slide(possible_future_diagrams[key], starting_region_label, regions_to_go_through, edges_to_go_through, edge_to_modify)

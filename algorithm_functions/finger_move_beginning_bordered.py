@@ -59,7 +59,7 @@ def finger_move_beginning_bordered(diagram, user_experience):
 
 				number_initial_finger_moves = 1 + number_initial_finger_moves
 
-				# We take the first region to fix and we indentify the first left "neighbor" with the basepoint
+				# We take the first region to fix and we indentify the first left "neighbour" with the basepoint
 				region_temp = regions_to_fix[0]
 				edges_already_crossed = []
 				regions_crossed = [region_temp]
@@ -79,7 +79,7 @@ def finger_move_beginning_bordered(diagram, user_experience):
 					border_points_region_temp = [point for point in diagram.regions[region_temp].input if point in list(range(1, diagram.number_border_points + 1))]
 					upper_intersection_point = max(border_points_region_temp) - 1
 
-					for [potential_neighbor, edge_crossed] in diagram.regions[region_temp].red_neighbors:
+					for [potential_neighbour, edge_crossed] in diagram.regions[region_temp].red_neighbours:
 
 						# We check that the edge that we crossed is indeed the "upper edge" of our region
 						is_upper_border_region = (min(edge_crossed) == upper_intersection_point)
@@ -94,8 +94,8 @@ def finger_move_beginning_bordered(diagram, user_experience):
 							# If the condition are satisfied, then we go in this new region, we 
 							# update the values and we break the for cycle
 							edges_already_crossed.append(edge_crossed)
-							regions_crossed.append(potential_neighbor.label)
-							region_temp = potential_neighbor.label
+							regions_crossed.append(potential_neighbour.label)
+							region_temp = potential_neighbour.label
 							break
 				
 				
@@ -124,7 +124,7 @@ def finger_move_beginning_bordered(diagram, user_experience):
 
 				while region_temp not in diagram.multiplicity_zero_regions:
 					
-					for [potential_neighbor, edge_crossed] in diagram.regions[region_temp].red_neighbors:
+					for [potential_neighbour, edge_crossed] in diagram.regions[region_temp].red_neighbours:
 
 						# We check that the edge that we crossed is indeed the "lower edge" of our region
 						is_lower_border_region = (min(edge_crossed) == lower_intersection_point)
@@ -139,8 +139,8 @@ def finger_move_beginning_bordered(diagram, user_experience):
 							# If the condition are satisfied, then we go in this new region, we 
 							# update the values and we break the for cycle
 							edges_already_crossed.append(edge_crossed)
-							regions_crossed.append(potential_neighbor.label)
-							region_temp = potential_neighbor.label
+							regions_crossed.append(potential_neighbour.label)
+							region_temp = potential_neighbour.label
 							break
 					
 
@@ -173,17 +173,17 @@ def finger_move_beginning_bordered(diagram, user_experience):
 				# First, we remove the fixed regions from the list of regions to fix
 				regions_to_fix = [region for region in regions_to_fix if region not in regions_to_go_through]
 
-				# We recover now the neighbor region that has the bent edge (just to know it for the "last_diagrams_regions_modified" attribute)
-				neighbor_region = False
-				for [candidate_region, edge] in diagram.regions[starting_region].blue_neighbors:
+				# We recover now the neighbour region that has the bent edge (just to know it for the "last_diagrams_regions_modified" attribute)
+				neighbour_region = False
+				for [candidate_region, edge] in diagram.regions[starting_region].blue_neighbours:
 					if edge == edge_to_bend:
-						neighbor_region = candidate_region
+						neighbour_region = candidate_region
 						break
 				
-				neighbor_region_label = neighbor_region.label
+				neighbour_region_label = neighbour_region.label
 
 				# We add the diagram's attribute that tell us what we have changed from the previous diagram 
-				diagram.last_diagram_regions_modified = [starting_region] + [edge_to_bend] + [regions_to_go_through] + [edges_to_go_through] + [ending_region, neighbor_region_label, 'Finger move']
+				diagram.last_diagram_regions_modified = [starting_region] + [edge_to_bend] + [regions_to_go_through] + [edges_to_go_through] + [ending_region, neighbour_region_label, 'Finger move']
 
 				# We now update the diagram doing the finger move
 				finger_move(diagram, starting_region, ending_region, regions_to_go_through, edges_to_go_through, edge_to_bend)

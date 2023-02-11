@@ -124,19 +124,19 @@ def finger_move(diagram, starting_region_label, ending_region_label, regions_to_
 
 
 	# We fix now the other region that has the bent edge
-	neighbor_region = False
-	for [candidate_region, edge] in diagram.regions[starting_region_label].blue_neighbors:
+	neighbour_region = False
+	for [candidate_region, edge] in diagram.regions[starting_region_label].blue_neighbours:
 		if edge == edge_to_bend:
-			neighbor_region = candidate_region
+			neighbour_region = candidate_region
 			break
 	
 	
-	neighbor_region_input = regions_input[neighbor_region.label - 1]
+	neighbour_region_input = regions_input[neighbour_region.label - 1]
 
-	edge_to_fix_index = get_index_of_edge(neighbor_region_input, edge_to_bend[::-1])
+	edge_to_fix_index = get_index_of_edge(neighbour_region_input, edge_to_bend[::-1])
 	
-	new_neighbor_region = neighbor_region_input[0: edge_to_fix_index + 1] + [number_intersection_points+1, number_intersection_points+2] + neighbor_region_input[edge_to_fix_index + 1:]
-	regions_input[neighbor_region.label -1] = new_neighbor_region
+	new_neighbour_region = neighbour_region_input[0: edge_to_fix_index + 1] + [number_intersection_points+1, number_intersection_points+2] + neighbour_region_input[edge_to_fix_index + 1:]
+	regions_input[neighbour_region.label -1] = new_neighbour_region
 
 
 

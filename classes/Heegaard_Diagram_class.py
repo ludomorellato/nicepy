@@ -1,7 +1,7 @@
 from functions.create_regions_as_classes import regions_as_classes
 from functions.sanity_checks import check_all_edges_twice
 from functions.compute_distance import compute_distance
-from functions.compute_neighbors import compute_neighbors
+from functions.compute_neighbours import compute_neighbours
 from functions.compute_circles_and_arcs import compute_curves_diagram
 from functions.compute_distance_complexities_diagram import compute_distance_complexities_diagram
 from functions.compute_number_generators import compute_number_generators
@@ -88,9 +88,9 @@ class Heegaard_diagram:
 		check_all_edges_twice(self)
 
 
-		# We compute the neighbors of the regions and we save them in the .neighbors 
+		# We compute the neighbours of the regions and we save them in the .neighbours 
 		# attribute of the regions
-		compute_neighbors(self)
+		compute_neighbours(self)
 
 
 		# We compute the distances of the regions we save it in the .distance attribute
@@ -222,7 +222,7 @@ class Heegaard_diagram:
 			s = s + "\n		Starting region: Region %d" %self.last_diagram_regions_modified[0]
 			s = s + "\n		Edge modified: %s" %str(self.last_diagram_regions_modified[1])
 			s = s + "\n		Ending region: Region %d" %self.last_diagram_regions_modified[-3]
-			s = s + "\n		Neighbor region: Region %d" %self.last_diagram_regions_modified[-2]
+			s = s + "\n		neighbour region: Region %d" %self.last_diagram_regions_modified[-2]
 			s = s + "\n		Middle regions:"
 
 			if self.last_diagram_regions_modified[2] == []:

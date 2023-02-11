@@ -22,18 +22,18 @@ def compute_distance(diagram):
         keys_temp = keys_temp[1:] 
 
         # We now check if the taken region has already  the distance assigned, in such case
-        # we assign the distance to all its blue neighbors 
+        # we assign the distance to all its blue neighbours 
         # To do so, we must distinguish between the case of a 
         # 4-ended tangle diagram and any other possibility
         if diagram.is_tangle_diagram:
             if regions[index_temp].distance >= 0:
-                for neighbor in regions[index_temp].blue_neighbors:
-                    if neighbor[0].distance == -1:
+                for neighbour in regions[index_temp].blue_neighbours:
+                    if neighbour[0].distance == -1:
 
-                        neighbor[0].distance = regions[index_temp].distance + 1
+                        neighbour[0].distance = regions[index_temp].distance + 1
 
                         # We also assign the p_or_q value to the region
-                        neighbor[0].p_or_q = regions[index_temp].p_or_q
+                        neighbour[0].p_or_q = regions[index_temp].p_or_q
                     
             # If the region that we tried to use doesn't have the distance yet, 
             # we put its index at the end of the list
@@ -42,10 +42,10 @@ def compute_distance(diagram):
                 
         else:
             if regions[index_temp].distance >= 0:
-                for neighbor in regions[index_temp].blue_neighbors:
-                    if neighbor[0].distance == -1:
+                for neighbour in regions[index_temp].blue_neighbours:
+                    if neighbour[0].distance == -1:
                         
-                        neighbor[0].distance = regions[index_temp].distance + 1
+                        neighbour[0].distance = regions[index_temp].distance + 1
                         
 
             # If the region that we tried to use doesn't have the distance yet, 

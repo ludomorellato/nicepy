@@ -62,7 +62,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 	# We can now start to modify the regions in regions_input
 
 
-	# We first fix the neighbor region with the slid edge and we cut the starting region in two
+	# We first fix the neighbour region with the slid edge and we cut the starting region in two
 	# Remark that we may pass again through starting_region, but at that point we can treat it as if
 	# it was a region in the middle of the move 
 	# As intersection points, we add the first and the last, as we would do if we were to do it by hand
@@ -86,34 +86,34 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 	
 
 
-	# We recover now the neighbor region that has the slid edge
-	neighbor_region = False
-	for [candidate_region, edge] in diagram.regions[starting_region_label].blue_neighbors:
+	# We recover now the neighbour region that has the slid edge
+	neighbour_region = False
+	for [candidate_region, edge] in diagram.regions[starting_region_label].blue_neighbours:
 		if edge == edge_to_slide:
-			neighbor_region = candidate_region
+			neighbour_region = candidate_region
 			break
 	
-	neighbor_region_input = regions_input[neighbor_region.label - 1]
+	neighbour_region_input = regions_input[neighbour_region.label - 1]
 
 	# And we find the index of such edge for this region
-	edge_to_fix_neighbor_index = get_index_of_edge(neighbor_region_input, edge_to_slide[::-1])
+	edge_to_fix_neighbour_index = get_index_of_edge(neighbour_region_input, edge_to_slide[::-1])
 	
 
-	# We then modify the neighbor region in the regions_input
+	# We then modify the neighbour region in the regions_input
 	if edge_to_slide_index < last_edge_index:
-		new_neighbor_region = neighbor_region_input[0: edge_to_fix_neighbor_index + 1] + [number_intersection_points + len(edges_to_go_through)] + starting_region[last_edge_index + 1:] + [starting_region[0], number_intersection_points + 1] + neighbor_region_input[edge_to_fix_neighbor_index + 1:]
+		new_neighbour_region = neighbour_region_input[0: edge_to_fix_neighbour_index + 1] + [number_intersection_points + len(edges_to_go_through)] + starting_region[last_edge_index + 1:] + [starting_region[0], number_intersection_points + 1] + neighbour_region_input[edge_to_fix_neighbour_index + 1:]
 		starting_region_cutted = starting_region[edge_to_slide_index + 1: last_edge_index + 1] + [number_intersection_points + len(edges_to_go_through)]
 		starting_region = [number_intersection_points + 1] + starting_region[1:edge_to_slide_index + 1]
 
 	else:
-		new_neighbor_region = neighbor_region_input[0: edge_to_fix_neighbor_index + 1] + [number_intersection_points + 1] + starting_region[1:last_edge_index+1] + [number_intersection_points + len(edges_to_go_through)] + neighbor_region_input[edge_to_fix_neighbor_index + 1:]
+		new_neighbour_region = neighbour_region_input[0: edge_to_fix_neighbour_index + 1] + [number_intersection_points + 1] + starting_region[1:last_edge_index+1] + [number_intersection_points + len(edges_to_go_through)] + neighbour_region_input[edge_to_fix_neighbour_index + 1:]
 		starting_region_cutted = [starting_region[0]] + [number_intersection_points + 1] + starting_region[edge_to_slide_index + 1:]
 		starting_region = [number_intersection_points + len(edges_to_go_through)] + starting_region[last_edge_index + 1: edge_to_slide_index + 1]
 
 
 	
 	# We modify the input in the regions_input
-	regions_input[neighbor_region.label -1] = new_neighbor_region
+	regions_input[neighbour_region.label -1] = new_neighbour_region
 	regions_input[starting_region_label -1] = starting_region
 	regions_input.append(starting_region_cutted)
 	
@@ -195,8 +195,8 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 
 
 			# We check if there was a basepoint in starting_region that was not modified by the move
-			# but now is in neighbor_region and hence is to modify in the basepoint dictionary
-			check_if_red_edge_on_starting_region_cutted_handleslide(diagram, starting_region_label, new_neighbor_region, neighbor_region.label)
+			# but now is in neighbour_region and hence is to modify in the basepoint dictionary
+			check_if_red_edge_on_starting_region_cutted_handleslide(diagram, starting_region_label, new_neighbour_region, neighbour_region.label)
 
 
 
@@ -207,7 +207,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 
 
 	# We check the first edge in the opposite orientation, i.e. if it is going to be 
-	# an entering edge for starting region, starting_region_cutted or neighbor_region
+	# an entering edge for starting region, starting_region_cutted or neighbour_region
 	# (as entering edge, it will be saved under "index_temp")
 	if edges_to_go_through[0][::-1] in edges_to_go_through[1:-1]:
 
@@ -219,7 +219,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 
 
 	# We check the last edge in the opposite orientation, i.e. if it is going to be 
-	# an exiting edge for starting region, starting_region_cutted or neighbor_region
+	# an exiting edge for starting region, starting_region_cutted or neighbour_region
 	# (as exiting edge, it will be saved under "index_temp - 1")
 	if edges_to_go_through[-1][::-1] in edges_to_go_through[1:-1]:
 
@@ -234,7 +234,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 
 
 	# We need to modify one last thing before iterating: now we have splitted
-	# the starting region in two and possibly some red edges went inside neighbor region;
+	# the starting region in two and possibly some red edges went inside neighbour region;
 	# therefore now we need to modify the lists of regions to cut through, substituting 
 	# the original region when needed
 
@@ -244,7 +244,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 	# We take the red edges of both regions
 	red_edges_starting_region = list(map(list, zip(starting_region, starting_region[1:]+ [starting_region[0]])))[::2]
 	red_edges_starting_region_cutted = list(map(list, zip(starting_region_cutted, starting_region_cutted[1:]+ [starting_region_cutted[0]])))[::2]
-	red_edges_new_neighbor_region = list(map(list, zip(new_neighbor_region, new_neighbor_region[1:]+ [new_neighbor_region[0]])))[::2]
+	red_edges_new_neighbour_region = list(map(list, zip(new_neighbour_region, new_neighbour_region[1:]+ [new_neighbour_region[0]])))[::2]
 
 	# And then we check the entering edge of the region at all the indicies
 	for index in indicies_visits_starting_region:
@@ -252,7 +252,7 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 		entering_edge = internal_edges_dictionary[index]['entering_edge']
 		
 		# We check if we are entering in starting_region, in starting_region_cutted
-		# or in neighbor_region
+		# or in neighbour_region
 		if entering_edge in red_edges_starting_region:
 			
 			# In this case, we don't need to do anything
@@ -263,10 +263,10 @@ def generalized_handle_slide(diagram, starting_region_label, regions_to_go_throu
 			# We need to change the label of the region that we are in
 			regions_to_go_through[index] = starting_region_cutted_label
 
-		elif entering_edge in red_edges_new_neighbor_region:
+		elif entering_edge in red_edges_new_neighbour_region:
 
 			# We need to change the label of the region that we are in
-			regions_to_go_through[index] = neighbor_region.label
+			regions_to_go_through[index] = neighbour_region.label
 
 		else:
 

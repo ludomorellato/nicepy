@@ -30,7 +30,7 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 
 
 		# We explore going out from red_edge
-		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbors(bad_region_to_modify, red_edge_index)
+		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbours(bad_region_to_modify, red_edge_index)
 
 		
 
@@ -97,11 +97,11 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 
 
 
-def exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index):
+def exploring_the_neighbours(bad_region_to_modify, first_edge_to_go_through_index):
 
-	# We understand the region that is neighbor to bad_region_to_modify via first_edge_to_go_through
+	# We understand the region that is neighbour to bad_region_to_modify via first_edge_to_go_through
 	# (i.e. we understand which is the first region in which we go)
-	for (first_region, first_edge) in bad_region_to_modify.red_neighbors:
+	for (first_region, first_edge) in bad_region_to_modify.red_neighbours:
 		if first_edge == bad_region_to_modify.input[first_edge_to_go_through_index:first_edge_to_go_through_index+2]:
 			break
 
@@ -117,7 +117,7 @@ def exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index
 	while (middle_region.number_edges == 4) and (middle_region.distance >= bad_region_to_modify.distance):
 
 		# We find the next region and the next edge
-		for (next_region, next_edge) in middle_region.red_neighbors:
+		for (next_region, next_edge) in middle_region.red_neighbours:
 			if next_edge != edges_to_go_through[-1][::-1]:
 				break
 			
@@ -155,7 +155,7 @@ def find_handleslide(diagram, bad_region_to_modify, first_red_edge_algorithm_ind
 
 		red_edge_index = get_index_of_edge(bad_region_to_modify.input, red_edge)
 		# We explore going out from red_edge
-		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbors(bad_region_to_modify, red_edge_index)
+		(last_region, edges_to_go_through, regions_to_go_through) = exploring_the_neighbours(bad_region_to_modify, red_edge_index)
 
 		# We check if this is the move that the algorithm would do
 		if red_edge == red_edge_algorithm:

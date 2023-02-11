@@ -151,7 +151,7 @@ def check_on_the_correctness_of_basepoints_dictionary(diagram, already_notified)
 					s = s + "\n		Starting region: Region %d" %H_diagram.last_diagram_regions_modified[0]
 					s = s + "\n		Edge modified: %s" %str(H_diagram.last_diagram_regions_modified[1])
 					s = s + "\n		Ending region: Region %d" %H_diagram.last_diagram_regions_modified[-3]
-					s = s + "\n		Neighbor region: Region %d" %H_diagram.last_diagram_regions_modified[-2]
+					s = s + "\n		neighbour region: Region %d" %H_diagram.last_diagram_regions_modified[-2]
 					s = s + "\n		Middle regions:"
 
 					if H_diagram.last_diagram_regions_modified[2] == []:
