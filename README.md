@@ -1,3 +1,7 @@
+*THIS IS A DEVELOP BRANCH, DO NOT USE IT TO RUN THE ALGORITHM* 
+
+
+
 # nicepy
 Python software to nicefy Heegaard diagrams.
 Documentation can be found in the Appendix A of the Master Thesis "Implementing the Sarkar-Wang Nicefication Algorithm" by Ludovico Morellato.
