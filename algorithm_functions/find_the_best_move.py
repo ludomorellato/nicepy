@@ -25,7 +25,15 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 		# We check if we are in this case and we set a flag to keep track of it
 		only_handleslide_allowed = False
 
-		if ((edge_to_modify_index - red_edge_index) == 1) or ((edge_to_modify_index - red_edge_index) == (-1 % bad_region_to_modify.number_edges)) or ((edge_to_modify_index - red_edge_index) == -1):
+		is_red_edge_adjacent = (
+								(edge_to_modify_index - red_edge_index) == 1
+							) or (
+								(edge_to_modify_index - red_edge_index) == (-1 % bad_region_to_modify.number_edges)
+							) or (
+								(edge_to_modify_index - red_edge_index) == -1
+							)
+		
+		if is_red_edge_adjacent:
 			only_handleslide_allowed = True
 
 
@@ -50,8 +58,17 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 			# Even if the difference between indicies of the first red edge and the last red edge is 2, we need to make sure that 
 			# they don't have the edge that we are modifying as blue edge between them.
 			# To do so, we set two flags, is_blue_edge_middle_1 and is_blue_edge_middle_2, that check if this is the case
-			is_blue_edge_middle_1 = (last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index) and (edge_to_modify_index + 1 % bad_region_to_modify.number_edges == red_edge_index)
-			is_blue_edge_middle_2 = (red_edge_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index) and (edge_to_modify_index + 1 % bad_region_to_modify.number_edges == last_edge_starting_region_index)
+			is_blue_edge_middle_1 = (
+					last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index
+					) and (
+					edge_to_modify_index + 1 % bad_region_to_modify.number_edges == red_edge_index
+					)
+
+			is_blue_edge_middle_2 = (
+					red_edge_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index
+					) and (
+					edge_to_modify_index + 1 % bad_region_to_modify.number_edges == last_edge_starting_region_index
+					)
 			
 			
 			is_blue_edge_middle = is_blue_edge_middle_1 or is_blue_edge_middle_2
@@ -175,8 +192,18 @@ def find_handleslide(diagram, bad_region_to_modify, first_red_edge_algorithm_ind
 			# Even if the difference between indicies of the first red edge and the last red edge is 2, we need to make sure that 
 			# they don't have the edge that we are modifying as blue edge between them.
 			# To do so, we set two flags, is_blue_edge_middle_1 and is_blue_edge_middle_2, that check if this is the case
-			is_blue_edge_middle_1 = (last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index) and (edge_to_modify_index + 1 % bad_region_to_modify.number_edges == red_edge_index)
-			is_blue_edge_middle_2 = (red_edge_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index) and (last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == red_edge_index)
+
+			is_blue_edge_middle_1 = (
+									last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index
+								) and (
+									edge_to_modify_index + 1 % bad_region_to_modify.number_edges == red_edge_index
+									)
+
+			is_blue_edge_middle_2 = (
+									red_edge_index + 1 % bad_region_to_modify.number_edges == edge_to_modify_index
+								) and (
+									last_edge_starting_region_index + 1 % bad_region_to_modify.number_edges == red_edge_index
+									)
 			
 			
 			is_blue_edge_middle = is_blue_edge_middle_1 or is_blue_edge_middle_2

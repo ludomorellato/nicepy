@@ -270,7 +270,7 @@ if print_details_nicefication:
 
 output_detail_nicefication = f'Number of generators of the diagram: {number_of_generators}\n'
 output_detail_nicefication = output_detail_nicefication + f'Number of regions of the diagram: {H_diagram.number_of_regions}\n'
-output_detail_nicefication = output_detail_nicefication + 'Number of cycle of the algorithm: %d \n' %number_iteration_algorithm
+output_detail_nicefication = output_detail_nicefication + f'Number of cycle of the algorithm: {number_iteration_algorithm} \n'
 #output_detail_nicefication = output_detail_nicefication + f"\nWas the diagram between the best looking ones: {final_diagram['was_the_one_looking_best_in_the_beginning']}"
 output_detail_nicefication = output_detail_nicefication + '\n\n\n\n\n'
 

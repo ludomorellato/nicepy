@@ -7,23 +7,23 @@ def check_no_circle_one_or_two_points(red_circles_input, blue_circles_input):
 	for index in range(len(red_circles_input)):
 		circle = red_circles_input[index]
 		if len(circle) == 2:
-			s = 'Error in input:\n	check red circle number %d, we have only two intersection points on it.' %(index+1) 
+			s = f'Error in input:\n	check red circle number {index + 1}, we have only two intersection points on it.' 
 			s = s+ '\n	Do a finger move in order to have at least three intersection points on it.'
 			sys.exit(s)
 		if len(circle) == 1:
-			s = 'Error in input:\n	check red circle number %d, we have only one intersection point on it.' %(index+1) 
+			s = f'Error in input:\n	check red circle number {index + 1}, we have only one intersection point on it.' 
 			s = s+ '\n	Do a finger move in order to have at least three intersection points on it.'
 			sys.exit(s)
 
 	for index in range(len(blue_circles_input)):
 		circle = blue_circles_input[index]
 		if len(circle) == 2:
-			s = 'Error in input:\n	check blue circle number %d, we have only two intersection points on it.' %(index+1) 
+			s = f'Error in input:\n	check blue circle number {index + 1}, we have only two intersection points on it.' 
 			s = s+ '\n	Do a finger move in order to have at least three intersection points on it.'
 			sys.exit(s)
 
 		if len(circle) == 1:
-			s = 'Error in input:\n	check blue circle number %d, we have only one  intersection point on it.' %(index+1) 
+			s = f'Error in input:\n	check blue circle number {index + 1}, we have only one intersection point on it.' 
 			s = s+ '\n	Do a finger move in order to have at least three intersection points on it.'
 			sys.exit(s)
 
@@ -147,25 +147,25 @@ def check_on_the_correctness_of_basepoints_dictionary(diagram, already_notified)
 					s = ""
 					s = s + "\n	Regions of the last diagram that we modified: "
 
-					s = s + "\n		Type of move: %s" %H_diagram.last_diagram_regions_modified[-1]
-					s = s + "\n		Starting region: Region %d" %H_diagram.last_diagram_regions_modified[0]
-					s = s + "\n		Edge modified: %s" %str(H_diagram.last_diagram_regions_modified[1])
-					s = s + "\n		Ending region: Region %d" %H_diagram.last_diagram_regions_modified[-3]
-					s = s + "\n		neighbour region: Region %d" %H_diagram.last_diagram_regions_modified[-2]
-					s = s + "\n		Middle regions:"
+					s = s + f"\n		Type of move: {H_diagram.last_diagram_regions_modified[-1]}"
+					s = s + f"\n		Starting region: Region {H_diagram.last_diagram_regions_modified[0]}"
+					s = s + f"\n		Edge modified: {str(H_diagram.last_diagram_regions_modified[1])}"
+					s = s + f"\n		Ending region: Region {H_diagram.last_diagram_regions_modified[-3]}"
+					s = s + f"\n		neighbour region: Region {H_diagram.last_diagram_regions_modified[-2]}"
+					s = s + f"\n		Middle regions:"
 
 					if H_diagram.last_diagram_regions_modified[2] == []:
 						s = s + " None"
 					else:
 						for label in H_diagram.last_diagram_regions_modified[2]:
-							s = s + "\n			Region %d" %label
+							s = s + f"\n			Region {label}"
 							
 					s = s + "\n		Edges crossed:"
 					for edge in H_diagram.last_diagram_regions_modified[3]:
-						s = s + "\n			%s" %str(edge)
+						s = s + f"\n			{edge}"
 
 						s = s + "\n"
 					'''
 
-					print('Type of move: %s' %diagram.last_diagram_regions_modified[-1])
+					print(f'Type of move: {diagram.last_diagram_regions_modified[-1]}')
 					input("If you want to proceed with the algorithm, press Enter")

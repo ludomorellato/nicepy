@@ -75,11 +75,11 @@ def saving_intermediate_steps(parameters_dict, intermediate_steps, number_iterat
         output = output + '\n'
 
         if step_number == 0:
-            output = output + 'Step number %d:	STARTING DIAGRAM \n' %step_number
+            output = output + f'Step number {step_number}:	STARTING DIAGRAM \n'
         elif step_number == number_iteration_algorithm:
-            output = output + 'Step number %d:	FINAL DIAGRAM \n' %step_number
+            output = output + f'Step number {step_number}:	FINAL DIAGRAM \n'
         else:
-            output = output + 'Step number %d: \n' %step_number
+            output = output + f'Step number {step_number}: \n'
         
         output = output + intermediate_steps[step_number].__str__()
         output = output + '\n'

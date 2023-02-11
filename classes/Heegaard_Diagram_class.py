@@ -14,7 +14,14 @@ from algorithm_functions.Sarkar_Wang_algorithm_smart import Sarkar_Wang_algorith
 
 class Heegaard_diagram:
 
-	def __init__(self, number_intersection_points, number_border_points, regions_input, basepoints_dictionary, last_diagram_regions_modified):
+	def __init__(
+		self, 
+		number_intersection_points, 
+		number_border_points, 
+		regions_input, 
+		basepoints_dictionary, 
+		last_diagram_regions_modified
+		):
 		
 		# We create regions as classes
 		self.regions = regions_as_classes(regions_input, number_border_points)
@@ -22,7 +29,11 @@ class Heegaard_diagram:
 
 		# We compute now the lists of list that describe the alpha circles, alpha arcs and the blue circles.
 		# This is superfluous the first time, but not all the other times
-		curves_diagram = compute_curves_diagram(regions_input, number_border_points, number_intersection_points)
+		curves_diagram = compute_curves_diagram(
+			regions_input, 
+			number_border_points, 
+			number_intersection_points
+			)
 
 		red_arcs = curves_diagram['red_arcs']
 		red_circles = curves_diagram['red_circles']
@@ -135,7 +146,13 @@ class Heegaard_diagram:
 		self.basepoints_dictionary['p_or_q'] = self.basepoints_p_or_q
 		self.basepoints_dictionary['basepoint_regions_and_red_edges'] = self.basepoint_regions_and_red_edges
 
-		self.__init__(self.NEW_number_intersection_points, self.NEW_number_border_points, self.NEW_regions_input, self.basepoints_dictionary, self.last_diagram_regions_modified)
+		self.__init__(
+			self.NEW_number_intersection_points, 
+			self.NEW_number_border_points, 
+			self.NEW_regions_input, 
+			self.basepoints_dictionary, 
+			self.last_diagram_regions_modified
+		)
 		
 
 
@@ -151,13 +168,19 @@ class Heegaard_diagram:
 			# We actually generate Heegaard Diagrams
 			intermediate_steps_beginning_diagrams = dict()
 			for step_number in range(number_initial_finger_moves + 1):
-				intermediate_steps_beginning_diagrams[step_number] = Heegaard_diagram(intermediate_steps_beginning[step_number][0], intermediate_steps_beginning[step_number][1], intermediate_steps_beginning[step_number][2], intermediate_steps_beginning[step_number][3], intermediate_steps_beginning[step_number][4])
+				intermediate_steps_beginning_diagrams[step_number] = Heegaard_diagram(
+					intermediate_steps_beginning[step_number][0], 
+					intermediate_steps_beginning[step_number][1], 
+					intermediate_steps_beginning[step_number][2], 
+					intermediate_steps_beginning[step_number][3], 
+					intermediate_steps_beginning[step_number][4]
+					)
 
 			# We print the changes done on the initial diagram
 			print('\n')
 			print('The initial finger moves worked!\n')
 			print('\n')
-			print('Number of finger moves done: %d \n' %number_initial_finger_moves)
+			print(f'Number of finger moves done: {number_initial_finger_moves} \n')
 			print('\n')
 			print('These are the intermediate step, including the starting diagram and the finishing one:\n')
 
@@ -169,7 +192,7 @@ class Heegaard_diagram:
 				print('-----------------------------------------------------------------------')
 				print('\n')
 				print('\n')
-				print('Step number %d: \n' %step_number)
+				print(f'Step number {step_number}: \n')
 				print(intermediate_steps_beginning_diagrams[step_number])
 				print('\n')
 				print('\n')
@@ -199,52 +222,52 @@ class Heegaard_diagram:
 		s = "Details of the Heegaard diagram:"
 
 		s = s + "\n"
-		s = s + "\n	Is it nice: "+ str(self.is_nice)
+		s = s + f"\n	Is it nice: {self.is_nice}"
 
 		if not self.is_nice:
 			s = s + "\n"
-			s = s + "\n		Distance of the diagram: %d" %self.distance_diagram
+			s = s + f"\n		Distance of the diagram: {self.distance_diagram}"
 			s = s + "\n		Distance complexities of the diagram: "
 			for distance in self.distance_complexities:
-				s = s + "\n			Total badness of distance %d: %d" %(distance, self.distance_complexities[distance][0])
-				s = s + "\n			Ordered list of badnesses and respectively regions: " + str(self.distance_complexities[distance][1:])
+				s = s + f"\n			Total badness of distance {distance}: {self.distance_complexities[distance][0]}"
+				s = s + f"\n			Ordered list of badnesses and respectively regions: {self.distance_complexities[distance][1:]}"
 
 		s = s + "\n"
-		s = s + "\n	Number of regions: "+ str(self.number_of_regions)
-		s = s + "\n	Number of intersection points: "+ str(self.number_intersection_points)
-		s = s + "\n	Number of border points: "+ str(self.number_border_points)
+		s = s + f"\n	Number of regions: {self.number_of_regions}"
+		s = s + f"\n	Number of intersection points: {self.number_intersection_points}"
+		s = s + f"\n	Number of border points: {self.number_border_points}"
 		s = s + "\n"
 
 		if self.last_diagram_regions_modified:
 			s = s + "\n	Regions of the last diagram that we modified: "
 
-			s = s + "\n		Type of move: %s" %self.last_diagram_regions_modified[-1]
-			s = s + "\n		Starting region: Region %d" %self.last_diagram_regions_modified[0]
-			s = s + "\n		Edge modified: %s" %str(self.last_diagram_regions_modified[1])
-			s = s + "\n		Ending region: Region %d" %self.last_diagram_regions_modified[-3]
-			s = s + "\n		neighbour region: Region %d" %self.last_diagram_regions_modified[-2]
-			s = s + "\n		Middle regions:"
+			s = s + f"\n		Type of move: {self.last_diagram_regions_modified[-1]}"
+			s = s + f"\n		Starting region: Region {self.last_diagram_regions_modified[0]}"
+			s = s + f"\n		Edge modified: {self.last_diagram_regions_modified[1]}"
+			s = s + f"\n		Ending region: Region {self.last_diagram_regions_modified[-3]}"
+			s = s + f"\n		neighbour region: Region {self.last_diagram_regions_modified[-2]}"
+			s = s + f"\n		Middle regions:"
 
 			if self.last_diagram_regions_modified[2] == []:
 				s = s + " None"
 			else:
 				for label in self.last_diagram_regions_modified[2]:
-					s = s + "\n			Region %d" %label
+					s = s + f"\n			Region {label}"
 			
 			s = s + "\n		Edges crossed:"
 			for edge in self.last_diagram_regions_modified[3]:
-				s = s + "\n			%s" %str(edge)
+				s = s + f"\n			{edge}"
 
 			s = s + "\n"
 		
 		s = s + "\n	Regions of the diagram: "
 		for label in self.regions:
-			temp = "\n		Region "+ str(self.regions[label].label) + ":"
-			temp = temp+ "\n			Input: " + str(self.regions[label].input)
-			temp = temp+ "\n			Badness: " + str(self.regions[label].badness)
+			temp = f"\n		Region {self.regions[label].label}:"
+			temp = temp+ f"\n			Input: {self.regions[label].input}"
+			temp = temp+ f"\n			Badness: {self.regions[label].badness}"
 			if self.regions[label].distance != -1:
-				temp = temp + "\n			Distance: " + str(self.regions[label].distance)
-			temp = temp+"\n			Is a border region: " + str(self.regions[label].is_border) + "\n"
+				temp = temp + f"\n			Distance: {self.regions[label].distance}"
+			temp = temp+ f"\n			Is a border region: {self.regions[label].is_border} \n"
 
 			s = s + temp
 		
