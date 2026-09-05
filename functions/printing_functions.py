@@ -56,34 +56,51 @@ def check_the_input(parameters_dict, diagram, type_of_diagram):
 
 
 def saving_intermediate_steps(parameters_dict, intermediate_steps, number_iteration_algorithm):
+    """Render the diagrams produced at each step of a nicefication run as text.
+
+    Takes the run parameters and the dictionary mapping step number to diagram;
+    returns the string to write to the output file. When the final diagram is
+    saved separately, the last step is left out so that it is not written twice.
+    """
 
     save_final_diagram = parameters_dict['save_final_diagram']
+
+    # The last intermediate step *is* the final diagram. When that is written on
+    # its own we stop one step short, so that it does not appear twice
+    if save_final_diagram:
+        step_numbers = [step for step in intermediate_steps if step != number_iteration_algorithm]
+    else:
+        step_numbers = list(intermediate_steps)
+
+    # A run that was already nice has the starting diagram as its only step, so
+    # there is nothing left to report once the final diagram is written
+    if not step_numbers:
+        return ''
 
     output = ''
 
     output = output + '\n'
 
     if save_final_diagram:
-        output = output + 'These are the intermediate step, including the starting diagram and the finishing one:\n'
+        output = output + 'These are the intermediate steps, up to but excluding the final diagram written above:\n'
 
     else:
-        output = output + 'These are the intermediate step, including the starting diagram:\n'
+        output = output + 'These are the intermediate step, including the starting diagram and the finishing one:\n'
 
-    for step_number in intermediate_steps.keys():
+    for step_number in step_numbers:
         output = output + '-----------------------------------------------------------------------------'
         output = output + '\n'
         output = output + '\n'
 
         if step_number == 0:
-            output = output + 'Step number %d:	STARTING DIAGRAM \n' %step_number
+            output = output + 'Step number %d:\tSTARTING DIAGRAM \n' %step_number
         elif step_number == number_iteration_algorithm:
-            output = output + 'Step number %d:	FINAL DIAGRAM \n' %step_number
+            output = output + 'Step number %d:\tFINAL DIAGRAM \n' %step_number
         else:
             output = output + 'Step number %d: \n' %step_number
-        
+
         output = output + intermediate_steps[step_number].__str__()
         output = output + '\n'
         output = output + '\n'
 
     return output
-    

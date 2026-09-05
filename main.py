@@ -275,6 +275,10 @@ if print_final_diagram:
 	print(H_diagram)
 
 
+# We render the intermediate steps of the run. We always bind the string, so that
+# the output stage below cannot reach it unbound
+output_intermediate_steps = ''
+
 if save_intermediate_steps:
 	output_intermediate_steps = saving_intermediate_steps(parameters_dict, intermediate_steps, number_iteration_algorithm)
 
@@ -295,7 +299,9 @@ if save_on_file:
 		outputstream.write(output_string_PQM)
 
 	if save_final_diagram:
-		outputstream.write(output_intermediate_steps)
+		outputstream.write('\nFINAL DIAGRAM\n')
+		outputstream.write(H_diagram.__str__())
+		outputstream.write('\n')
 
 	if save_intermediate_steps:
 		outputstream.write(output_intermediate_steps)

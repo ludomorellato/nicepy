@@ -247,7 +247,7 @@ def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
             # obtain an alpha circle instead of four alpha arcs. We also generate new basepoints
             # that count more than 0 in the sense of the multiplicity where we close the borders
             # (in the case in which we don't have a multiplicity zero basepoint in such region)
-            close_4_ended_tangle_diagram(possible_diagrams[0])
+            close_4_ended_tangle_diagram(diagram_dictionary[0])
 
 
             # We create a list with only the index for the unique diagram
