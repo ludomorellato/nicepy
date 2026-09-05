@@ -111,7 +111,7 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-26 tests, about 13 seconds. They run all five examples end to end and check the
+32 tests, about 12 seconds. They run all five examples end to end and check the
 postcondition of the algorithm directly: every region not containing a basepoint must
 have at most four sides.
 
