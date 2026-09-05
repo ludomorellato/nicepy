@@ -1,54 +1,54 @@
+from collections import deque
+
+
 def compute_distance(diagram):
-    regions = diagram.regions 
-    multiplicity_zero_regions = diagram.multiplicity_zero_regions
-    
-    # We assign distance 0 to the regions with basepoint
-    # To do so, we must distinguish between the case of a 
-    # 4-ended tangle diagram and any other possibility
+    """Label every region with its distance from the nearest basepoint, in place.
+
+    The distance of a region is the smallest number of beta circles an arc must
+    cross to reach a multiplicity zero region, travelling in the complement of
+    the alpha curves (Definition 4.13 of the thesis, extended to several
+    basepoints in Section 4.4.2). Crossing an alpha edge is not allowed, so the
+    walk only ever steps between regions that share a beta edge.
+
+    A breadth-first search seeded with every basepoint at once gives each region
+    the distance to the nearest of them. For a tangle diagram each region also
+    records, in p_or_q, which side of the alpha arcs the basepoint it was
+    reached from lies on.
+    """
+
+    regions = diagram.regions
+
+    # The regions holding a basepoint are the ones at distance 0, and they are
+    # the sources the search starts from
+    frontier = deque()
+
     if diagram.is_tangle_diagram:
         for couple in diagram.basepoints_p_or_q:
-            regions[couple[0]].distance = 0
-            regions[couple[0]].p_or_q = ((1 - couple[1]) * 'p') + (couple[1] * 'q')
+            region = regions[couple[0]]
+            region.distance = 0
+            region.p_or_q = ((1 - couple[1]) * 'p') + (couple[1] * 'q')
+            frontier.append(region)
     else:
-        for index in multiplicity_zero_regions:
+        for index in diagram.multiplicity_zero_regions:
             regions[index].distance = 0
+            frontier.append(regions[index])
 
-    keys_temp = list(regions.keys())
+    # Seeding the queue with every basepoint before expanding any of them is
+    # what makes the result the distance to the *nearest* basepoint: regions are
+    # settled in order of increasing distance, so the first label a region gets
+    # is the smallest one it can get
+    while frontier:
 
-    while keys_temp != []:
+        region = frontier.popleft()
 
-        # We consider the first index from the list and we temporarely remove it from the list
-        index_temp = keys_temp[0] 
-        keys_temp = keys_temp[1:] 
+        for neighbor, edge in region.blue_neighbors:
 
-        # We now check if the taken region has already  the distance assigned, in such case
-        # we assign the distance to all its blue neighbors 
-        # To do so, we must distinguish between the case of a 
-        # 4-ended tangle diagram and any other possibility
-        if diagram.is_tangle_diagram:
-            if regions[index_temp].distance >= 0:
-                for neighbor in regions[index_temp].blue_neighbors:
-                    if neighbor[0].distance == -1:
+            if neighbor.distance == -1:
 
-                        neighbor[0].distance = regions[index_temp].distance + 1
+                neighbor.distance = region.distance + 1
 
-                        # We also assign the p_or_q value to the region
-                        neighbor[0].p_or_q = regions[index_temp].p_or_q
-                    
-            # If the region that we tried to use doesn't have the distance yet, 
-            # we put its index at the end of the list
-            else:  
-                keys_temp.append(index_temp)
-                
-        else:
-            if regions[index_temp].distance >= 0:
-                for neighbor in regions[index_temp].blue_neighbors:
-                    if neighbor[0].distance == -1:
-                        
-                        neighbor[0].distance = regions[index_temp].distance + 1
-                        
+                # We also assign the p_or_q value to the region
+                if diagram.is_tangle_diagram:
+                    neighbor.p_or_q = region.p_or_q
 
-            # If the region that we tried to use doesn't have the distance yet, 
-            # we put its index at the end of the list
-            else:  
-                keys_temp.append(index_temp)
+                frontier.append(neighbor)

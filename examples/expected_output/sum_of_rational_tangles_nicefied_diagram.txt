@@ -118,7 +118,7 @@ Details of the Heegaard diagram:
 		Region 12:
 			Input: [31, 28, 29, 30]
 			Badness: 0
-			Distance: 9
+			Distance: 7
 			Is a border region: False
 
 		Region 13:
@@ -680,7 +680,7 @@ Details of the Heegaard diagram:
 		Region 3:
 			Input: [34, 4, 3, 33]
 			Badness: 0
-			Distance: 3
+			Distance: 2
 			Is a border region: False
 
 		Region 4:
@@ -848,7 +848,7 @@ Details of the Heegaard diagram:
 		Region 31:
 			Input: [28, 7, 14, 29]
 			Badness: 0
-			Distance: 6
+			Distance: 5
 			Is a border region: False
 
 		Region 32:

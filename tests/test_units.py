@@ -131,14 +131,15 @@ class TestComputeDistance:
         assert diagram.distances() == {1: 0, 2: 1, 3: 1, 4: 2}
 
     def test_a_shortcut_is_taken(self):
-        # 5 neighbours the basepoint directly, so it is at distance 1 and not 4
+        # Round a five-cycle, 4 is reachable in two steps the short way (1-5-4)
+        # even though the long way round (1-2-3-4) is three
         diagram = DiagramForDistance(
             [1, 2, 3, 4, 5], [(1, 2), (2, 3), (3, 4), (4, 5), (1, 5)], [1],
         )
 
         compute_distance(diagram)
 
-        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 3, 5: 1}
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 2, 5: 1}
 
     def test_a_tangle_diagram_carries_p_and_q_outwards(self):
         # Every region records which of the two basepoints it was reached from
@@ -148,21 +149,14 @@ class TestComputeDistance:
 
         compute_distance(diagram)
 
-        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 0}
-        assert [diagram.regions[label].p_or_q for label in (1, 2, 3, 4)] == ['p', 'p', 'p', 'q']
+        assert diagram.distances() == {1: 0, 2: 1, 3: 1, 4: 0}
+        assert [diagram.regions[label].p_or_q for label in (1, 2, 3, 4)] == ['p', 'p', 'q', 'q']
 
-    def test_with_two_basepoints_the_distance_is_not_to_the_nearest_one(self):
-        """Characterisation test: this pins current behaviour, not intended behaviour.
+    def test_with_two_basepoints_the_distance_is_to_the_nearest_one(self):
+        """Section 4.4.2: the distance is measured to *some* basepoint, the nearest.
 
-        Regions are visited in label order rather than from a queue seeded with
-        every basepoint, so whichever basepoint reaches a region first wins. Here
-        region 4 neighbours basepoint 5 directly, yet it is labelled 3 because
-        the walk from basepoint 1 got there first. The same happens on the
-        committed pretzel_tangle example, where two regions are labelled 4
-        instead of 3. Whether that is intended is a question for the author:
-        distance also carries the p/q side of a tangle, so measuring from one
-        basepoint per side may be deliberate. Changing it would change which
-        region the algorithm fixes first, and so the committed results.
+        Region 4 neighbours basepoint 5 directly, so it is at distance 1 even
+        though the walk from basepoint 1 would reach it in three steps.
         """
 
         diagram = DiagramForDistance(
@@ -171,5 +165,14 @@ class TestComputeDistance:
 
         compute_distance(diagram)
 
-        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 3, 5: 0}
-        assert diagram.distances()[4] != 1
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 1, 5: 0}
+
+    def test_a_region_no_basepoint_can_reach_keeps_its_initial_label(self):
+        # The thesis requires every component of the complement of alpha to hold
+        # a multiplicity zero region, so this should not arise for valid input;
+        # it must terminate rather than hang if it ever does
+        diagram = DiagramForDistance([1, 2, 3], [(1, 2)], [1])
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: -1}

@@ -174,7 +174,7 @@ Details of the Heegaard diagram:
 		Region 19:
 			Input: [21, 12, 13, 22]
 			Badness: 0
-			Distance: 6
+			Distance: 5
 			Is a border region: False
 
 		Region 20:
@@ -186,7 +186,7 @@ Details of the Heegaard diagram:
 		Region 21:
 			Input: [20, 9, 12, 21]
 			Badness: 0
-			Distance: 6
+			Distance: 5
 			Is a border region: False
 
 		Region 22:
