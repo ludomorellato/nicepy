@@ -1,6 +1,5 @@
 import sys
 
-from functions.get_index_of_edge import get_index_of_edge
 
 
 def glue_rational_tangles(diagrams_tangles, gluing_instructions, tangles_input):

@@ -4,6 +4,11 @@ from functions.get_index_of_edge import get_index_of_edge
 
 
 def generalized_handleslide_searcher(diagram, starting_region_label, edge_to_modify, edge_to_modify_index):
+	"""Return the generalized handle slides available from a region.
+
+	Takes the region to fix and the edge the algorithm must cross; returns a
+	list of candidate moves for generalized_handle_slide to apply.
+	"""
 
 	starting_region = diagram.regions[starting_region_label].input
 

@@ -1,8 +1,12 @@
-import numpy
 import itertools
 import sys
 
 def compute_number_generators(diagram):
+    """Return the number of generators of the Heegaard Floer chain complex.
+
+    This is the permanent of the intersection matrix of the alpha and beta
+    curves of the diagram, and is what the algorithm tries to keep small.
+    """
     
     # In this function we compute the number of generator of the diagram
     # This means to construct a matrix nxn, where n is the number of the

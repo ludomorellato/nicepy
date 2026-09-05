@@ -429,6 +429,12 @@ def compute_blue_circles(regions_input, number_border_points, number_intersectio
 
 
 def compute_curves_diagram(regions_input, number_border_points, number_intersection_points):
+    """Recover the curves of a diagram from its list of regions.
+
+    Returns a dictionary with the alpha arcs under 'red_arcs', the alpha
+    circles under 'red_circles' and the beta circles under 'blue_circles',
+    each as a list of the intersection points it runs through.
+    """
     curves = dict()
 
     output_compute_red_arcs = compute_red_arcs(regions_input, number_border_points, number_intersection_points)

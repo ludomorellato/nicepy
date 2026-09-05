@@ -2,7 +2,7 @@ import string
 from copy import deepcopy
 import sys
 
-from functions.input_purifier import list_of_list_input, list_input, string_input
+from functions.input_purifier import list_of_list_input, list_input
 from functions.sanity_checks import check_no_circle_one_or_two_points
 from functions.compute_circles_and_arcs import compute_curves_diagram
 

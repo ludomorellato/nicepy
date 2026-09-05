@@ -449,7 +449,7 @@ def output_for_computing_invariant(diagram, number_border_points, alpha_arcs_sit
 			for intersection in H_diagram_for_output.regions[label].input[::-1]:
 				good_regions_output_string = good_regions_output_string + str(intersection)  + ","
 
-			good_regions_output_string = good_regions_output_string + "\[Placeholder],\[Placeholder],"
+			good_regions_output_string = good_regions_output_string + r"\[Placeholder],\[Placeholder],"
 
 		good_regions_output_string = good_regions_output_string[:-1] + "},"
 

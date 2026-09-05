@@ -4,7 +4,6 @@
 # (in the case in which we don't have a mulitplicity zero basepoint)
 
 from functions.get_index_of_edge import get_index_of_edge
-from classes.Heegaard_Diagram_class import Heegaard_diagram
 
 def close_4_ended_tangle_diagram(diagram):
 	

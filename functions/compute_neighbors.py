@@ -1,4 +1,9 @@
 def compute_neighbors(diagram):
+	"""Record which regions share an edge with which, in place.
+
+	Fills the red_neighbors and blue_neighbors attributes of every region of
+	the diagram, each as a list of (region, shared edge) pairs.
+	"""
 	for i in diagram.regions.keys():
 
         # We compute the red neighbors

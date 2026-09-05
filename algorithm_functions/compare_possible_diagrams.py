@@ -1,6 +1,11 @@
 import sys
 
 def compare_possible_diagrams(diagram, possible_diagrams, total_complexities, number_generators):
+    """Choose which of the diagrams reachable in one move to continue from.
+
+    Prefers the lowest total complexity, breaking ties on the number of
+    generators; returns the winning diagram.
+    """
 
     # We now need to understand wich diagram is better
     # We cycle until we get a diagram with which we can proceed

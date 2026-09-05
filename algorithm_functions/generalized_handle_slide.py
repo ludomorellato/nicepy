@@ -2,7 +2,7 @@ import sys
 import copy
 
 from functions.get_index_of_edge import get_index_of_edge
-from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoint_handleslide_starting_region_first_edge, check_and_fix_basepoint_handleslide_starting_region_last_edge, check_if_red_edge_on_starting_region_cutted_handleslide, check_and_fix_basepoint_generalized_handleslide, check_if_red_edge_on_new_region_cutted
+from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoint_handleslide_starting_region_first_edge, check_and_fix_basepoint_handleslide_starting_region_last_edge, check_if_red_edge_on_starting_region_cutted_handleslide, check_and_fix_basepoint_generalized_handleslide
 
 # This function is quite similar to the one for the finger move.
 # Howeverl notice that in this case we always have that starting and ending regions coincide.
@@ -15,6 +15,11 @@ from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoin
 
 
 def generalized_handle_slide(diagram, starting_region_label, regions_to_go_through, edges_to_go_through, edge_to_slide):
+	"""Slide an alpha edge over a path that crosses the same region more than once.
+
+	The generalized form of handle_slide; records the result in
+	diagram.NEW_regions_input, ready for update_diagram.
+	"""
 
 
 	edges_to_go_through = edges_to_go_through[:-1]

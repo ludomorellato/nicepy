@@ -5,6 +5,12 @@ from functions.get_index_of_edge import get_index_of_edge
 
 
 def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
+	"""Return the finger moves and handle slides available from a bad region.
+
+	Takes the region to fix and the index of the edge the algorithm must cross;
+	returns a list of candidate moves, each described by the regions and edges
+	it passes through.
+	"""
 
 	# We create a dictionary to save all the possibilities
 	possible_moves = dict()
@@ -98,6 +104,11 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 
 
 def exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index):
+	"""Follow a red edge across the diagram until it reaches a region twice.
+
+	Returns the region where the move ends, the edges crossed on the way and
+	the regions passed through.
+	"""
 
 	# We understand the region that is neighbor to bad_region_to_modify via first_edge_to_go_through
 	# (i.e. we understand which is the first region in which we go)

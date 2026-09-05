@@ -1,6 +1,11 @@
 from classes.region_class import Region
 
 def regions_as_classes(regions_input, number_border_points):
+    """Turn the region list read from the input file into Region objects.
+
+    Each region is a cyclic walk of intersection points; returns a dictionary
+    mapping the label of a region to its Region.
+    """
     regions = dict()
     for i in range(len(regions_input)):
         region_temp = regions_input[i]

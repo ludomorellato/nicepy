@@ -3,8 +3,7 @@ import copy
 
 from functions.get_index_of_edge import get_index_of_edge
 from functions.inner_circle_handleslide import inner_circle_handleslide
-from functions.inner_circle_handleslide_slow import inner_circle_handleslide_slow
-from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoint_handleslide_starting_region_first_edge, check_and_fix_basepoint_handleslide_starting_region_last_edge, check_if_red_edge_on_starting_region_cutted_handleslide, check_and_fix_basepoint_handleslide, check_if_red_edge_on_new_region_cutted
+from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoint_handleslide_starting_region_first_edge, check_and_fix_basepoint_handleslide_starting_region_last_edge, check_if_red_edge_on_starting_region_cutted_handleslide, check_and_fix_basepoint_handleslide
 
 # This function is quite similar to the one for the finger move.
 # Howeverl notice that in this case we always have that starting and ending regions coincide.
@@ -17,6 +16,11 @@ from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoin
 
 
 def handle_slide(diagram, starting_region_label, regions_to_go_through, edges_to_go_through, edge_to_slide):
+	"""Slide an alpha edge over the given regions, in place.
+
+	Records the resulting regions in diagram.NEW_regions_input, ready for
+	update_diagram.
+	"""
 
 
 	regions_input = copy.deepcopy(diagram.regions_input)

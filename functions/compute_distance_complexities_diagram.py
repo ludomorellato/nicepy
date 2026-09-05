@@ -1,4 +1,3 @@
-import math
 
 def compute_distance_complexities_diagram(diagram):
     complexities = dict()

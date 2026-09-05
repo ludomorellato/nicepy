@@ -14,6 +14,12 @@ from functions.get_index_of_edge import get_index_of_edge
 import classes.Heegaard_Diagram_class
 
 def Sarkar_Wang_algorithm_smart(diagram):
+	"""Run one cycle of the Sarkar-Wang algorithm on a diagram, in place.
+
+	Picks the worst region at the greatest distance from the basepoints and
+	applies the move that most reduces the complexity of the diagram. Sets
+	diagram.is_nice when there is no bad region left to fix.
+	"""
 
 	# First off, we check the max distance complexity of the diagram.
 	# If it is zero, then the diagram is nice and we can end the algorithm 

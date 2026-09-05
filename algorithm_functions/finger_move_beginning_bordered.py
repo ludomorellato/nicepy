@@ -1,4 +1,3 @@
-import sys
 
 from algorithm_functions.finger_move import finger_move
 
@@ -6,6 +5,12 @@ from algorithm_functions.finger_move import finger_move
 
 
 def finger_move_beginning_bordered(diagram, user_experience, verbose=False):
+	"""Fix the border regions of a bordered diagram before the algorithm starts.
+
+	A border region must be a square or a bigon for the algorithm to apply.
+	Returns the intermediate diagrams if any finger move was needed, and an
+	empty dictionary when the diagram was already usable.
+	"""
 
 	if verbose:
 		print("\n")

@@ -1,5 +1,4 @@
 import sys
-from functions.get_index_of_edge import get_index_of_edge
 
 # With this function we understand which is the inner circle of an handleslide
 

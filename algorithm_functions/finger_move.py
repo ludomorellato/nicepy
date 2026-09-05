@@ -11,6 +11,11 @@ from functions.check_and_fix_basepoint_finger_move import check_and_fix_basepoin
 
 
 def finger_move(diagram, starting_region_label, ending_region_label, regions_to_go_through, edges_to_go_through, edge_to_bend):
+	"""Push a finger of an alpha curve across the given regions, in place.
+
+	Splits every region on the path in two and records the change in
+	diagram.NEW_regions_input, ready for update_diagram.
+	"""
 	
 	regions_input = diagram.regions_input.copy()
 	number_intersection_points = diagram.number_intersection_points

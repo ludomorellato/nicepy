@@ -4,6 +4,8 @@ from functions.get_index_of_edge import get_index_of_edge
 # With this function we understand which is the inner circle of an handleslide
 
 def inner_circle_handleslide(diagram, starting_region_label, regions_to_go_through, edges_to_go_through):
+    """Handle slide a beta circle that lies wholly inside one region, in place.
+    """
     
     # We try to understand which blue circle is the one that we are sliding on, by
     # understanding which circle is in the middle of the first and the last red
