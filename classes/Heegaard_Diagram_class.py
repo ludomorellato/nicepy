@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Any
+
 from functions.create_regions_as_classes import regions_as_classes
 from functions.sanity_checks import check_all_edges_twice
 from functions.compute_distance import compute_distance
@@ -22,7 +26,7 @@ class Heegaard_diagram:
 	time until is_nice is set.
 	"""
 
-	def __init__(self, number_intersection_points, number_border_points, regions_input, basepoints_dictionary, last_diagram_regions_modified):
+	def __init__(self, number_intersection_points: int, number_border_points: int, regions_input: list[list[int]], basepoints_dictionary: dict[str, Any], last_diagram_regions_modified: list[Any] | bool) -> None:
 		
 		# We create regions as classes
 		self.regions = regions_as_classes(regions_input, number_border_points)
@@ -137,7 +141,7 @@ class Heegaard_diagram:
 
 
 	# Method to update the diagram
-	def update_diagram(self):
+	def update_diagram(self) -> None:
 		"""Rebuild the diagram from the regions a move left in the NEW_* attributes."""
 
 		self.basepoints_dictionary['multiplicity_zero_regions'] = self.multiplicity_zero_regions
@@ -150,7 +154,7 @@ class Heegaard_diagram:
 
 
 	# Method for the beginning finger move
-	def finger_move_beginning_bordered(self, user_experience, verbose=False):
+	def finger_move_beginning_bordered(self, user_experience: bool, verbose: bool = False) -> None:
 		"""Fix the border regions of a bordered diagram with initial finger moves."""
 		intermediate_steps_beginning = finger_move_beginning_bordered(self, user_experience, verbose)
 
@@ -195,18 +199,18 @@ class Heegaard_diagram:
 
 
 	# Method for apply the algorithm to the diagram
-	def Sarkar_Wang_algorithm(self):
+	def Sarkar_Wang_algorithm(self) -> None:
 		"""Run one cycle of the algorithm on this diagram, in place."""
 		Sarkar_Wang_algorithm_smart(self)
 
 
 
 	# Method called when we write simply "diagram"
-	def __repr__(self):
+	def __repr__(self) -> str:
 		return "This is a Heegaard diagram"
 
 	# Method called when we write "print(diagram)"
-	def __str__(self):
+	def __str__(self) -> str:
 		s = "Details of the Heegaard diagram:"
 
 		s = s + "\n"

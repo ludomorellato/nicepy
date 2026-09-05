@@ -1,6 +1,15 @@
+from __future__ import annotations
+
+from typing import Any
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 
-def compare_possible_diagrams(diagram, possible_diagrams, total_complexities, number_generators):
+def compare_possible_diagrams(diagram: Heegaard_diagram, possible_diagrams: dict[Any, Heegaard_diagram], total_complexities: dict[Any, int], number_generators: dict[Any, int]) -> Any:
     """Choose which of the diagrams reachable in one move to continue from.
 
     Prefers the lowest total complexity, breaking ties on the number of
@@ -111,7 +120,7 @@ def compare_possible_diagrams(diagram, possible_diagrams, total_complexities, nu
 
 
 
-def is_new_diagram_better(new_diagram, old_diagram):
+def is_new_diagram_better(new_diagram: Any, old_diagram: Any) -> bool:
 
     distance_new_diagram = new_diagram.distance_diagram
 

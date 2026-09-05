@@ -1,6 +1,9 @@
+from __future__ import annotations
+
+
 import sys
 
-def get_index_of_edge(region_input, edge):
+def get_index_of_edge(region_input: list[int], edge: list[int]) -> int:
 
 	found_index_flag = False
 

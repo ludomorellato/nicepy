@@ -1,7 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import itertools
 import sys
 
-def compute_number_generators(diagram):
+def compute_number_generators(diagram: Heegaard_diagram) -> int:
     """Return the number of generators of the Heegaard Floer chain complex.
 
     This is the permanent of the intersection matrix of the alpha and beta
@@ -139,7 +146,7 @@ def compute_number_generators(diagram):
 
 
 
-def copy_matrix(M):
+def copy_matrix(M: list[list[int]]) -> list[list[int]]:
     """
     Creates and returns a copy of a matrix.
         :param M: The matrix to be copied
@@ -165,7 +172,7 @@ def copy_matrix(M):
 
 
 
-def zeros_matrix(rows, cols):
+def zeros_matrix(rows: int, cols: int) -> list[list[int]]:
     """
     Creates a matrix filled with zeros.
         :param rows: the number of rows the matrix should have
@@ -184,7 +191,7 @@ def zeros_matrix(rows, cols):
 
 
 
-def determinant_without_sign(A, total=0):
+def determinant_without_sign(A: list[list[int]], total: int = 0) -> int:
     # Section 1: store indices in list for row referencing
     indices = list(range(len(A)))
      

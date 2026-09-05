@@ -1,6 +1,9 @@
+from __future__ import annotations
+
+
 import string # Used to eliminate the whitespaces of the input
 
-def list_of_list_input(input):
+def list_of_list_input(input: str) -> list[list[int]]:
 	output = []
 	
 	# First, we clean the input by all the whitespaces
@@ -24,7 +27,7 @@ def list_of_list_input(input):
 
 
 
-def list_input(input):
+def list_input(input: str) -> list[int]:
 	output = []
 	
 	# First, we clean the input by all the whitespaces
@@ -40,7 +43,7 @@ def list_input(input):
 
 
 
-def string_input(input):
+def string_input(input: str) -> str:
 	
 	# We clean the input by all the whitespaces
 	input = input.translate({ord(c): None for c in string.whitespace})

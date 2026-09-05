@@ -1,10 +1,18 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 
 from algorithm_functions.finger_move import finger_move
 
 
 
 
-def finger_move_beginning_bordered(diagram, user_experience, verbose=False):
+def finger_move_beginning_bordered(diagram: Heegaard_diagram, user_experience: bool, verbose: bool = False) -> dict[Any, Any] | None:
 	"""Fix the border regions of a bordered diagram before the algorithm starts.
 
 	A border region must be a square or a bigon for the algorithm to apply.

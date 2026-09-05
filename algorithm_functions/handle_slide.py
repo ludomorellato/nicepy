@@ -1,3 +1,10 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 import copy
 
@@ -15,7 +22,7 @@ from functions.check_and_fix_basepoint_handleslide import check_and_fix_basepoin
 
 
 
-def handle_slide(diagram, starting_region_label, regions_to_go_through, edges_to_go_through, edge_to_slide):
+def handle_slide(diagram: Heegaard_diagram, starting_region_label: int, regions_to_go_through: list[int], edges_to_go_through: list[list[int]], edge_to_slide: list[int]) -> None:
 	"""Slide an alpha edge over the given regions, in place.
 
 	Records the resulting regions in diagram.NEW_regions_input, ready for

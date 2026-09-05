@@ -1,6 +1,13 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import copy
 
-def check_and_fix_basepoint_finger_move(diagram, region_label, edge_to_check, new_red_edge):
+def check_and_fix_basepoint_finger_move(diagram: Heegaard_diagram, region_label: int, edge_to_check: list[int], new_red_edge: list[int]) -> None:
 	if region_label in diagram.basepoint_regions_and_red_edges.keys():
 
 		# The region has a basepoint, we check if it have modified the associated red edge
@@ -18,7 +25,7 @@ def check_and_fix_basepoint_finger_move(diagram, region_label, edge_to_check, ne
 
 
 
-def check_if_red_edge_on_new_region_cutted(diagram, region_label, new_region_to_check, new_label):
+def check_if_red_edge_on_new_region_cutted(diagram: Heegaard_diagram, region_label: int, new_region_to_check: list[int], new_label: int) -> None:
 
 	if region_label in diagram.basepoint_regions_and_red_edges.keys():
 			

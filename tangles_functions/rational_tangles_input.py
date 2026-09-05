@@ -1,6 +1,10 @@
+from __future__ import annotations
+
+from typing import Any
+
 import sys
 
-def heegaard_diagram_for_rational_tangle(sign, p, q, label_to_skip):
+def heegaard_diagram_for_rational_tangle(sign: str, p: int, q: int, label_to_skip: int) -> dict[str, Any]:
 
     # In this function, we construct the Heegaard diagram for a rational 
     # tangle, given by its canonical form as ± p/q

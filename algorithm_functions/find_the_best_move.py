@@ -1,10 +1,19 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+    from classes.region_class import Region
+
 import copy
 
 from functions.get_index_of_edge import get_index_of_edge
 
 
 
-def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
+def find_the_best_move(bad_region_to_modify: Region, edge_to_modify_index: int) -> dict[Any, Any]:
 	"""Return the finger moves and handle slides available from a bad region.
 
 	Takes the region to fix and the index of the edge the algorithm must cross;
@@ -103,7 +112,7 @@ def find_the_best_move(bad_region_to_modify, edge_to_modify_index):
 
 
 
-def exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index):
+def exploring_the_neighbors(bad_region_to_modify: Region, first_edge_to_go_through_index: int) -> tuple[Region, list[list[int]], list[Region]]:
 	"""Follow a red edge across the diagram until it reaches a region twice.
 
 	Returns the region where the move ends, the edges crossed on the way and
@@ -148,7 +157,7 @@ def exploring_the_neighbors(bad_region_to_modify, first_edge_to_go_through_index
 
 
 
-def find_handleslide(diagram, bad_region_to_modify, first_red_edge_algorithm_index, edge_to_modify_index):
+def find_handleslide(diagram: Heegaard_diagram, bad_region_to_modify: Region, first_red_edge_algorithm_index: int, edge_to_modify_index: int) -> Any:
 
 	# We create a dictionary to save all the possibilities
 	possible_moves = dict()

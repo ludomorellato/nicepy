@@ -85,3 +85,15 @@ def test_a_missing_input_file_is_reported(repository_root, tmp_path, capsys):
 
     assert exit_info.value.code == 2
     assert 'no such input file' in capsys.readouterr().err
+
+
+def test_an_unknown_kind_of_diagram_is_reported(repository_root, tmp_path, parameters):
+    # Used to return None and fail later with "'NoneType' object is not
+    # subscriptable", which says nothing about the input file
+    bad_input = tmp_path / 'typo.txt'
+    bad_input.write_text('tangel\n0\n3\n[[1,2,1,3],[2,3,2,1],[3,1,3,2]]\n[1]\n')
+
+    with pytest.raises(SystemExit) as exit_info:
+        nicefy(bad_input, parameters())
+
+    assert "'tangel' is not a kind of diagram" in str(exit_info.value)

@@ -1,9 +1,14 @@
+from __future__ import annotations
+
+from typing import Any
+from pathlib import Path
+
 from functions.input_manager import input_manager
 from functions.printing_functions import check_the_input
 from functions.application_algorithm import application_algorithm
 
 
-def nicefy(input_path, parameters_dict):
+def nicefy(input_path: str | Path, parameters_dict: dict[str, Any]) -> dict[str, Any]:
     """Run the Sarkar-Wang nicefication on the diagram described by a file.
 
     Takes the path of an input file and the dictionary of run parameters, and

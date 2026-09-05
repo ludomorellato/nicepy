@@ -1,8 +1,16 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 
 # With this function we understand which is the inner circle of an handleslide
 
-def inner_circle_handleslide_slow(diagram, starting_region_label, regions_to_go_through, edges_to_go_through):
+def inner_circle_handleslide_slow(diagram: Heegaard_diagram, starting_region_label: int, regions_to_go_through: list[int], edges_to_go_through: list[list[int]]) -> Any:
     
     blue_circles = diagram.blue_circles
 

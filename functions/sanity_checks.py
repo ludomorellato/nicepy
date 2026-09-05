@@ -1,9 +1,16 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 
 
 # Sanity check: there isn't any circle with only two points on it
 
-def check_no_circle_one_or_two_points(red_circles_input, blue_circles_input):
+def check_no_circle_one_or_two_points(red_circles_input: list[list[int]], blue_circles_input: list[list[int]]) -> None:
 	for index in range(len(red_circles_input)):
 		circle = red_circles_input[index]
 		if len(circle) == 2:
@@ -33,7 +40,7 @@ def check_no_circle_one_or_two_points(red_circles_input, blue_circles_input):
 
 # Sanity check: all the blue and red edges are counted twice (in both directions)
 
-def check_all_edges_twice(diagram):
+def check_all_edges_twice(diagram: Heegaard_diagram) -> None:
 
 	# Variables needed
 	regions = diagram.regions
@@ -132,7 +139,7 @@ for i in regions:
 
 
 
-def check_on_the_correctness_of_basepoints_dictionary(diagram, already_notified):
+def check_on_the_correctness_of_basepoints_dictionary(diagram: Heegaard_diagram, already_notified: bool) -> None:
 	
 	if diagram.is_tangle_diagram:
 		for key in diagram.basepoint_regions_and_red_edges.keys():

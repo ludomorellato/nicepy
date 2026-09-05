@@ -1,9 +1,17 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 from functions.get_index_of_edge import get_index_of_edge
 
 # With this function we understand which is the inner circle of an handleslide
 
-def inner_circle_handleslide(diagram, starting_region_label, regions_to_go_through, edges_to_go_through):
+def inner_circle_handleslide(diagram: Heegaard_diagram, starting_region_label: int, regions_to_go_through: list[int], edges_to_go_through: list[list[int]]) -> Any:
     """Handle slide a beta circle that lies wholly inside one region, in place.
     """
     

@@ -1,3 +1,10 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 
 from functions.get_index_of_edge import get_index_of_edge
@@ -10,7 +17,7 @@ from functions.check_and_fix_basepoint_finger_move import check_and_fix_basepoin
 
 
 
-def finger_move(diagram, starting_region_label, ending_region_label, regions_to_go_through, edges_to_go_through, edge_to_bend):
+def finger_move(diagram: Heegaard_diagram, starting_region_label: int, ending_region_label: int, regions_to_go_through: list[int], edges_to_go_through: list[list[int]], edge_to_bend: list[int]) -> None:
 	"""Push a finger of an alpha curve across the given regions, in place.
 
 	Splits every region on the path in two and records the change in

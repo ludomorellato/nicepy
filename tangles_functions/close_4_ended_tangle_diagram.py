@@ -1,3 +1,10 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 # In the case of a diagram for a 4-ended tangle, we want to eliminate the borders and 
 # obtain an alpha circle instead of four alpha arcs. We also generate new basepoints
 # that count more than 0 in the sense of the multiplicity where we close the borders
@@ -5,7 +12,7 @@
 
 from functions.get_index_of_edge import get_index_of_edge
 
-def close_4_ended_tangle_diagram(diagram):
+def close_4_ended_tangle_diagram(diagram: Heegaard_diagram) -> None:
 	
 	number_border_points = diagram.number_border_points
 	number_intersection_points = diagram.number_intersection_points

@@ -1,5 +1,13 @@
+from __future__ import annotations
 
-def compute_distance_complexities_diagram(diagram):
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
+
+def compute_distance_complexities_diagram(diagram: Heegaard_diagram) -> tuple[dict[int, list[Any]], int]:
     complexities = dict()
     not_ordered_complexities = dict(sorted(diagram.distance_complexities.items()))
 

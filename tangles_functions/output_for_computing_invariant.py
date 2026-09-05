@@ -1,3 +1,10 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 # Function that creates as output the input for PQM.m Mathematica Software
 
 import sys
@@ -8,7 +15,7 @@ from classes.Heegaard_Diagram_class import Heegaard_diagram
 
 
 
-def output_for_computing_invariant(diagram, number_border_points, alpha_arcs_sites, alexander_grading):
+def output_for_computing_invariant(diagram: Heegaard_diagram, number_border_points: int, alpha_arcs_sites: list[int], alexander_grading: list[int]) -> tuple[str, str]:
 	
 
 	# If we are in this case, we want to do a few operations first on the diagram

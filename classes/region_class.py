@@ -1,3 +1,8 @@
+from __future__ import annotations
+
+from typing import Any
+
+
 class Region:
 	"""One face of the diagram, bounded by an alternating walk of alpha and beta edges.
 
@@ -6,7 +11,7 @@ class Region:
 	basepoints has badness 0.
 	"""
 
-	def __init__(self, label, n, red_edges, blue_edges, border_edges, input):
+	def __init__(self, label: int, n: int, red_edges: list[list[int]], blue_edges: list[list[int]], border_edges: list[list[int]], input: list[int]) -> None:
 		self.label = label
 		self.number_edges = 2*n
 		self.badness = max(n-2,0)
@@ -30,7 +35,7 @@ class Region:
 		self.p_or_q = False
 
 
-	def add_neighbor(self, neighbor, color):
+	def add_neighbor(self, neighbor: list[Any], color: str) -> None:
 			"""Record a region sharing an edge with this one, on the 'red' or 'blue' side."""
 			if color == 'red':
 				self.red_neighbors.append(neighbor)
@@ -39,11 +44,11 @@ class Region:
         
         
 	# Method called when we write simply "regions[i]"
-	def __repr__(self):
+	def __repr__(self) -> str:
 		return "Region %d" %self.label
 
 	# Method called when we write "print(regions[i])"
-	def __str__(self):
+	def __str__(self) -> str:
 		s = "Region "+ str(self.label) + ":"
 		s = s+ "\n	Badness: " + str(self.badness)
 		if self.distance != -1:

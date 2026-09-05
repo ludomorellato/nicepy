@@ -1,8 +1,16 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
 
 
 
 
-def check_the_input(parameters_dict, diagram, type_of_diagram):
+
+def check_the_input(parameters_dict: dict[str, Any], diagram: Heegaard_diagram, type_of_diagram: str) -> None:
 
     user_experience = parameters_dict['user_experience']
 
@@ -55,7 +63,7 @@ def check_the_input(parameters_dict, diagram, type_of_diagram):
 
 
 
-def saving_intermediate_steps(parameters_dict, intermediate_steps, number_iteration_algorithm):
+def saving_intermediate_steps(parameters_dict: dict[str, Any], intermediate_steps: dict[int, Heegaard_diagram], number_iteration_algorithm: int) -> str:
     """Render the diagrams produced at each step of a nicefication run as text.
 
     Takes the run parameters and the dictionary mapping step number to diagram;

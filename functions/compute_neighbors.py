@@ -1,4 +1,11 @@
-def compute_neighbors(diagram):
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
+def compute_neighbors(diagram: Heegaard_diagram) -> None:
 	"""Record which regions share an edge with which, in place.
 
 	Fills the red_neighbors and blue_neighbors attributes of every region of

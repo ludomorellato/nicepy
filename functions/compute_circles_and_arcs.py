@@ -1,7 +1,12 @@
+from __future__ import annotations
+
+from typing import Any
+
+
 import numpy as np
 
 
-def compute_red_arcs(regions_input, number_border_points, number_intersection_points):
+def compute_red_arcs(regions_input: list[list[int]], number_border_points: int, number_intersection_points: int) -> dict[str, Any]:
     output_compute_red_arcs = dict()
 
     if number_border_points == 0:
@@ -118,7 +123,7 @@ def compute_red_arcs(regions_input, number_border_points, number_intersection_po
 
 
 
-def compute_red_circles(regions_input, intersection_points_remaining):
+def compute_red_circles(regions_input: list[list[int]], intersection_points_remaining: list[Any]) -> list[list[int]]:
 
     red_circles = []
 
@@ -250,7 +255,7 @@ def compute_red_circles(regions_input, intersection_points_remaining):
 
 
 
-def compute_blue_circles(regions_input, number_border_points, number_intersection_points):
+def compute_blue_circles(regions_input: list[list[int]], number_border_points: int, number_intersection_points: int) -> list[list[int]]:
 
     blue_circles = []
 
@@ -428,7 +433,7 @@ def compute_blue_circles(regions_input, number_border_points, number_intersectio
 
 
 
-def compute_curves_diagram(regions_input, number_border_points, number_intersection_points):
+def compute_curves_diagram(regions_input: list[list[int]], number_border_points: int, number_intersection_points: int) -> dict[str, Any]:
     """Recover the curves of a diagram from its list of regions.
 
     Returns a dictionary with the alpha arcs under 'red_arcs', the alpha

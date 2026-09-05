@@ -1,9 +1,17 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import copy
 
 from functions.get_index_of_edge import get_index_of_edge
 
 
-def generalized_handleslide_searcher(diagram, starting_region_label, edge_to_modify, edge_to_modify_index):
+def generalized_handleslide_searcher(diagram: Heegaard_diagram, starting_region_label: int, edge_to_modify: list[int], edge_to_modify_index: int) -> dict[Any, Any]:
 	"""Return the generalized handle slides available from a region.
 
 	Takes the region to fix and the edge the algorithm must cross; returns a
@@ -41,7 +49,7 @@ def generalized_handleslide_searcher(diagram, starting_region_label, edge_to_mod
 
 
 
-def neighbor_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_modify_index):
+def neighbor_edge_searcher(diagram: Heegaard_diagram, starting_region: list[int], edge_to_modify: list[int], edge_to_modify_index: int) -> dict[Any, Any]:
 
 	# As first check, if we only have one blue circle we don't
 	# have any chance; therefore we return False
@@ -402,7 +410,7 @@ def neighbor_edge_searcher(diagram, starting_region, edge_to_modify, edge_to_mod
 
 
 
-def generalized_handleslide_construction(diagram, starting_region_label, edge_to_modify, red_edge_to_go_through, circle_set):
+def generalized_handleslide_construction(diagram: Heegaard_diagram, starting_region_label: int, edge_to_modify: list[int], red_edge_to_go_through: list[int], circle_set: Any) -> dict[Any, Any]:
 	
 	starting_region = diagram.regions[starting_region_label]
 

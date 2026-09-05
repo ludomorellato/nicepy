@@ -1,3 +1,11 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 from copy import deepcopy
 
 from functions.sanity_checks import check_on_the_correctness_of_basepoints_dictionary
@@ -6,7 +14,7 @@ from classes.Heegaard_Diagram_class import Heegaard_diagram
 
 
 
-def application_algorithm(parameters_dict, H_diagram, minimal_number_generators, more_than_one_diagram):
+def application_algorithm(parameters_dict: dict[str, Any], H_diagram: Heegaard_diagram, minimal_number_generators: int, more_than_one_diagram: bool) -> dict[str, Any]:
 
     print_distance_complexities = parameters_dict['print_distance_complexities']
     print_intermediate_steps = parameters_dict['print_intermediate_steps']

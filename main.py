@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 #!/usr/bin/env python3
 
 """Nicefy a Heegaard diagram with the Sarkar-Wang algorithm.
@@ -16,7 +19,7 @@ from functions.printing_functions import saving_intermediate_steps
 from tangles_functions.output_for_computing_invariant import output_for_computing_invariant
 
 
-def build_parser():
+def build_parser() -> argparse.ArgumentParser:
 	"""Return the argument parser for the command line interface."""
 
 	parser = argparse.ArgumentParser(
@@ -149,13 +152,13 @@ def build_parser():
 	return parser
 
 
-def default_output_path(input_path):
+def default_output_path(input_path: Path) -> Path:
 	"""Return where the nicefied diagram of an input file is written by default."""
 
 	return input_path.parent / 'nicefied_diagrams' / (input_path.stem + '_nicefied_diagram.txt')
 
 
-def main(argv=None):
+def main(argv: list[str] | None = None) -> int:
 
 	parser = build_parser()
 	args = parser.parse_args(argv)

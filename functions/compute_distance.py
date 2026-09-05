@@ -1,7 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 from collections import deque
 
 
-def compute_distance(diagram):
+def compute_distance(diagram: Heegaard_diagram) -> None:
     """Label every region with its distance from the nearest basepoint, in place.
 
     The distance of a region is the smallest number of beta circles an arc must

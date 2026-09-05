@@ -1,8 +1,12 @@
+from __future__ import annotations
+
+from typing import Any
+
 import sys
 
 
 
-def glue_rational_tangles(diagrams_tangles, gluing_instructions, tangles_input):
+def glue_rational_tangles(diagrams_tangles: dict[int, list[Any]], gluing_instructions: list[list[int]], tangles_input: list[list[int]]) -> dict[str, Any]:
 
     # Recall that gluing are given as
     #       [label tangle 1, end to glue of tangle 1, label tangle 2, end to glue of tangle 2]
@@ -381,7 +385,7 @@ def glue_rational_tangles(diagrams_tangles, gluing_instructions, tangles_input):
 
 
 
-def identify_regions_to_glue(end_1, end_2, label_1, label_2, diagrams_tangles):
+def identify_regions_to_glue(end_1: int, end_2: int, label_1: int, label_2: int, diagrams_tangles: dict[int, list[Any]]) -> dict[str, Any]:
 
     # We create a diagram to keep trakc of the possibility of border regions 
     # that touch more than one border (this appens if we started from a 1/1 rational tangle)
@@ -564,7 +568,7 @@ def identify_regions_to_glue(end_1, end_2, label_1, label_2, diagrams_tangles):
 
 
 
-def check_another_border_region(region_in, region_out, diagrams_tangles, label_tangle):
+def check_another_border_region(region_in: str, region_out: str, diagrams_tangles: dict[int, list[Any]], label_tangle: int) -> dict[str, Any]:
 
     output = dict()
 
@@ -585,7 +589,7 @@ def check_another_border_region(region_in, region_out, diagrams_tangles, label_t
 
 
 
-def gluing_1_1(p_1, q_1, p_2, q_2, label_1, label_2, end_1, end_2, diagrams_tangles, tangles_input):
+def gluing_1_1(p_1: int, q_1: int, p_2: int, q_2: int, label_1: int, label_2: int, end_1: int, end_2: int, diagrams_tangles: dict[int, list[Any]], tangles_input: list[list[int]]) -> None:
     
 
     # We identify the regions to glue together

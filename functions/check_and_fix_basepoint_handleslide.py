@@ -1,7 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import copy
 import sys
 
-def check_and_fix_basepoint_handleslide_starting_region_first_edge(diagram, region_label, region_cutted_label, edge_to_slide_index, last_edge_index, edge_to_check, new_red_edge_starting_region, new_red_edge_starting_region_cutted):
+def check_and_fix_basepoint_handleslide_starting_region_first_edge(diagram: Heegaard_diagram, region_label: int, region_cutted_label: int, edge_to_slide_index: int, last_edge_index: int, edge_to_check: list[int], new_red_edge_starting_region: list[int], new_red_edge_starting_region_cutted: list[int]) -> None:
 
 	# We first check the first red edge
 			
@@ -76,7 +83,7 @@ def check_and_fix_basepoint_handleslide_starting_region_first_edge(diagram, regi
 
 
 
-def check_and_fix_basepoint_handleslide_starting_region_last_edge(diagram, region_label, region_cutted_label, edge_to_slide_index, last_edge_index, edge_to_check, new_red_edge_starting_region, new_red_edge_starting_region_cutted):
+def check_and_fix_basepoint_handleslide_starting_region_last_edge(diagram: Heegaard_diagram, region_label: int, region_cutted_label: int, edge_to_slide_index: int, last_edge_index: int, edge_to_check: list[int], new_red_edge_starting_region: list[int], new_red_edge_starting_region_cutted: list[int]) -> None:
 
 	# We check now the last red edge
 		
@@ -154,7 +161,7 @@ def check_and_fix_basepoint_handleslide_starting_region_last_edge(diagram, regio
 
 
 
-def check_if_red_edge_on_starting_region_cutted_handleslide(diagram, region_label, new_region_to_check, new_label):
+def check_if_red_edge_on_starting_region_cutted_handleslide(diagram: Heegaard_diagram, region_label: int, new_region_to_check: list[int], new_label: int) -> None:
 
 	# We zip new_region_to_check
 	new_region_to_check_zipped = list(map(list, zip(new_region_to_check, new_region_to_check[1:]+ [new_region_to_check[0]])))
@@ -206,7 +213,7 @@ def check_if_red_edge_on_starting_region_cutted_handleslide(diagram, region_labe
 
 
 
-def check_and_fix_basepoint_handleslide(diagram, region_label, middle_region, entering_edge, exiting_edge, number_intersection_points):
+def check_and_fix_basepoint_handleslide(diagram: Heegaard_diagram, region_label: int, middle_region: list[int], entering_edge: list[int], exiting_edge: list[int], number_intersection_points: int) -> None:
 
 	# If the region has a basepoint, we check if it have modified the associated red edge
 	# We want to leave the basepoint distant from the inner blue circle that we slide on.
@@ -327,7 +334,7 @@ def check_and_fix_basepoint_handleslide(diagram, region_label, middle_region, en
 
 
 
-def check_if_red_edge_on_new_region_cutted(diagram, region_label, new_region_to_check, new_label):
+def check_if_red_edge_on_new_region_cutted(diagram: Heegaard_diagram, region_label: int, new_region_to_check: list[int], new_label: int) -> None:
 
 	if region_label in diagram.basepoint_regions_and_red_edges.keys():
 			
@@ -405,7 +412,7 @@ def check_if_red_edge_on_new_region_cutted(diagram, region_label, new_region_to_
 
 
 
-def check_and_fix_basepoint_generalized_handleslide(diagram, region_label, entering_edge, exiting_edge, new_entering_edge, new_exiting_edge):
+def check_and_fix_basepoint_generalized_handleslide(diagram: Heegaard_diagram, region_label: int, entering_edge: list[int], exiting_edge: list[int], new_entering_edge: list[int], new_exiting_edge: list[int]) -> None:
 
 	# If the region has a basepoint, we check if it have modified the associated red edge
 	# We want to leave the basepoint distant from the inner blue circle that we slide on,

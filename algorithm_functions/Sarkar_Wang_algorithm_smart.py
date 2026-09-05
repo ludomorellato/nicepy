@@ -1,3 +1,10 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import sys
 import copy
 
@@ -12,7 +19,7 @@ from functions.get_index_of_edge import get_index_of_edge
 
 import classes.Heegaard_Diagram_class
 
-def Sarkar_Wang_algorithm_smart(diagram):
+def Sarkar_Wang_algorithm_smart(diagram: Heegaard_diagram) -> None:
 	"""Run one cycle of the Sarkar-Wang algorithm on a diagram, in place.
 
 	Picks the worst region at the greatest distance from the basepoints and

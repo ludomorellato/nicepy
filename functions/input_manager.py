@@ -1,3 +1,11 @@
+from __future__ import annotations
+
+from typing import Any, TextIO
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from classes.Heegaard_Diagram_class import Heegaard_diagram
+
 import string
 from copy import deepcopy
 import sys
@@ -30,7 +38,7 @@ from tangles_functions.glue_rational_tangles import glue_rational_tangles
 
 
 
-def input_manager(inputstream, parameters_dict):
+def input_manager(inputstream: TextIO, parameters_dict: dict[str, Any]) -> dict[str, Any]:
 
     type_of_diagram = inputstream.readline().translate({ord(c): None for c in string.whitespace})
 
@@ -46,6 +54,9 @@ def input_manager(inputstream, parameters_dict):
         return rational_diagram(inputstream, type_of_diagram, parameters_dict)
 
 
+    # Any other first line is a mistake in the input; saying so beats returning
+    # nothing and failing further up with an error that does not mention the file
+    sys.exit(f"Error in the input: '{type_of_diagram}' is not a kind of diagram that we can read. \nThe first line should be 'normal', 'tangle' or 'rational'")
 
 
 
@@ -77,7 +88,9 @@ def input_manager(inputstream, parameters_dict):
 
 
 
-def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
+
+
+def normal_or_tangle_diagram(inputstream: TextIO, type_of_diagram: str, parameters_dict: dict[str, Any]) -> dict[str, Any]:
 
     try_multiplicity_zero_regions_choices = parameters_dict['try_multiplicity_zero_regions_choices']
 
@@ -339,7 +352,7 @@ def normal_or_tangle_diagram(inputstream, type_of_diagram, parameters_dict):
 
 
 
-def rational_diagram(inputstream, type_of_diagram, parameters_dict):
+def rational_diagram(inputstream: TextIO, type_of_diagram: str, parameters_dict: dict[str, Any]) -> dict[str, Any]:
 
     number_of_tangles = int(inputstream.readline())
     tangles_input = list_of_list_input(inputstream.readline())
@@ -554,7 +567,7 @@ def rational_diagram(inputstream, type_of_diagram, parameters_dict):
 
 
 
-def find_possible_mulitplicity_zero_regions(diagram):
+def find_possible_mulitplicity_zero_regions(diagram: Heegaard_diagram) -> dict[str, Any]:
 
     internal_border_regions = []
     external_border_regions = []
