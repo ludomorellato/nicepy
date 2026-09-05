@@ -141,10 +141,11 @@ class Heegaard_diagram:
 
 
 	# Method for the beginning finger move
-	def finger_move_beginning_bordered(self, user_experience):
-		intermediate_steps_beginning = finger_move_beginning_bordered(self, user_experience)
+	def finger_move_beginning_bordered(self, user_experience, verbose=False):
+		"""Fix the border regions of a bordered diagram with initial finger moves."""
+		intermediate_steps_beginning = finger_move_beginning_bordered(self, user_experience, verbose)
 
-		if intermediate_steps_beginning:
+		if intermediate_steps_beginning and verbose:
 			
 			number_initial_finger_moves = intermediate_steps_beginning['number_finger_moves']
 

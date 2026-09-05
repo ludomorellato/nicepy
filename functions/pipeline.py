@@ -20,6 +20,7 @@ def nicefy(input_path, parameters_dict):
 
     user_experience = parameters_dict['user_experience']
     input_check = parameters_dict['input_check']
+    verbose = parameters_dict.get('verbose', False)
 
     # We read the input
     inputstream = open(input_path, 'r')
@@ -54,7 +55,32 @@ def nicefy(input_path, parameters_dict):
         # Function that allows the user to check that the input given is correct
         check_the_input(parameters_dict, possible_diagrams[0], type_of_diagram)
 
-    for index in order_for_nicefication:
+    # ----------------------------------------------------------------------- #
+    #                          SARKAR-WANG ALGORITHM                           #
+    # ----------------------------------------------------------------------- #
+
+    # The setup is done and we can apply the algorithm to each diagram until it
+    # becomes nice
+
+    if verbose:
+        print('---------------------------------------------------\n')
+        print('		SARKAR-WANG ALGORITHM		\n')
+        print('---------------------------------------------------')
+        print("\n")
+        print("We are now going to run the algorithm on the Heegaard Diagram")
+
+        if more_than_one_diagram:
+            print(f'There are {len(order_for_nicefication)} admissible basepoint placements to try')
+
+        if user_experience:
+            input('\nPress enter to continue...')
+
+        print("\n")
+
+    for position, index in enumerate(order_for_nicefication, start=1):
+
+        if verbose and more_than_one_diagram:
+            print(f'Basepoint placement {position} of {len(order_for_nicefication)}')
 
         # We take the diagram saved in index
         H_diagram = possible_diagrams[index]
@@ -63,24 +89,7 @@ def nicefy(input_path, parameters_dict):
         # border regions, to see if they are already squares or bigons or if we
         # need to do an initial finger move (and in such case, we do this
         # required finger move)
-        H_diagram.finger_move_beginning_bordered(user_experience)
-
-        # ------------------------------------------------------------------- #
-        #                        SARKAR-WANG ALGORITHM                         #
-        # ------------------------------------------------------------------- #
-
-        # The setup is done and we can apply the algorithm to the diagram until
-        # it becomes nice
-
-        print('---------------------------------------------------\n')
-        print('		SARKAR-WANG ALGORITHM		\n')
-        print('---------------------------------------------------')
-        print("\n")
-        print("We are now going to run the algorithm on the Heegaard Diagram")
-        if user_experience:
-            input('\nPress enter to continue...')
-
-        print("\n")
+        H_diagram.finger_move_beginning_bordered(user_experience, verbose)
 
         # We apply the algorithm on H_diagram
         results_algorithm = application_algorithm(parameters_dict, H_diagram, minimal_number_generators, more_than_one_diagram)

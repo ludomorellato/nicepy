@@ -5,10 +5,11 @@ from algorithm_functions.finger_move import finger_move
 
 
 
-def finger_move_beginning_bordered(diagram, user_experience):
+def finger_move_beginning_bordered(diagram, user_experience, verbose=False):
 
-	print("\n")
-	print("We check if the diagram is bordered and, in such case, if some initial finger moves are needed to fix the border regions\n")
+	if verbose:
+		print("\n")
+		print("We check if the diagram is bordered and, in such case, if some initial finger moves are needed to fix the border regions\n")
 
 	if user_experience:
 		input('\nPress enter to continue...')
@@ -16,7 +17,8 @@ def finger_move_beginning_bordered(diagram, user_experience):
 
 	if diagram.number_border_points == 0:
 		# If we are in a non-border diagram, then we don't need to do this beginning move
-		print("The diagram is not bordered, therefore we don't need to do these fixing moves\n")
+		if verbose:
+			print("The diagram is not bordered, therefore we don't need to do these fixing moves\n")
 
 		if user_experience:
 			input('\nPress enter to continue...')
@@ -42,8 +44,9 @@ def finger_move_beginning_bordered(diagram, user_experience):
 			# in regions_to_fix, we fix them
 
 			
-			print('The diagram is bordered and we need to fix the border region')
-			print('Now the required finger moves are going to be done')
+			if verbose:
+				print('The diagram is bordered and we need to fix the border region')
+				print('Now the required finger moves are going to be done')
 
 			if user_experience:
 				input('\nPress enter to continue...')
@@ -207,7 +210,8 @@ def finger_move_beginning_bordered(diagram, user_experience):
 		else:
 			# All the border regions are good or they have distance 0,
 			# we don't have anything to do.
-			print("The diagram is bordered, but there is nothing to do with the border regions. We can proceed with the algorithm\n")
+			if verbose:
+				print("The diagram is bordered, but there is nothing to do with the border regions. We can proceed with the algorithm\n")
 			
 			if user_experience:
 				input('\nPress enter to continue...')
