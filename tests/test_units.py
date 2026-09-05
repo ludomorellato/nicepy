@@ -4,6 +4,7 @@ import pytest
 
 from classes.region_class import Region
 from functions.compute_distance_complexities_diagram import compute_distance_complexities_diagram
+from functions.compute_distance import compute_distance
 from functions.get_index_of_edge import get_index_of_edge
 
 
@@ -80,3 +81,95 @@ class TestComputeDistanceComplexitiesDiagram:
 
         assert complexities == {}
         assert total == 0
+
+
+class DiagramForDistance:
+    """The attributes compute_distance reads and writes."""
+
+    def __init__(self, labels, blue_edges, basepoints, p_or_q=None):
+        self.regions = {label: Region(label, 2, [], [], [], []) for label in labels}
+
+        for first, second in blue_edges:
+            self.regions[first].blue_neighbors.append((self.regions[second], [first, second]))
+            self.regions[second].blue_neighbors.append((self.regions[first], [second, first]))
+
+        self.multiplicity_zero_regions = basepoints
+        self.basepoints_p_or_q = p_or_q or []
+        self.is_tangle_diagram = bool(p_or_q)
+
+    def distances(self):
+        return {label: region.distance for label, region in self.regions.items()}
+
+
+class TestComputeDistance:
+    """Distance is how many beta edges away a region is from a basepoint.
+
+    It is what orders the algorithm's work: badness at distance d is weighted
+    by 3**d, so the worst region furthest from the basepoints is fixed first.
+    """
+
+    def test_walks_outwards_along_a_chain(self):
+        diagram = DiagramForDistance([1, 2, 3, 4], [(1, 2), (2, 3), (3, 4)], [1])
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 3}
+
+    def test_does_not_depend_on_where_the_basepoint_sits_in_the_chain(self):
+        diagram = DiagramForDistance([1, 2, 3, 4], [(1, 2), (2, 3), (3, 4)], [4])
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 3, 2: 2, 3: 1, 4: 0}
+
+    def test_takes_the_shorter_of_two_routes(self):
+        # 4 is two steps away whichever way round the diamond you go
+        diagram = DiagramForDistance([1, 2, 3, 4], [(1, 2), (1, 3), (2, 4), (3, 4)], [1])
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: 1, 4: 2}
+
+    def test_a_shortcut_is_taken(self):
+        # 5 neighbours the basepoint directly, so it is at distance 1 and not 4
+        diagram = DiagramForDistance(
+            [1, 2, 3, 4, 5], [(1, 2), (2, 3), (3, 4), (4, 5), (1, 5)], [1],
+        )
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 3, 5: 1}
+
+    def test_a_tangle_diagram_carries_p_and_q_outwards(self):
+        # Every region records which of the two basepoints it was reached from
+        diagram = DiagramForDistance(
+            [1, 2, 3, 4], [(1, 2), (2, 3), (3, 4)], [1, 4], p_or_q=[[1, 0], [4, 1]],
+        )
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 0}
+        assert [diagram.regions[label].p_or_q for label in (1, 2, 3, 4)] == ['p', 'p', 'p', 'q']
+
+    def test_with_two_basepoints_the_distance_is_not_to_the_nearest_one(self):
+        """Characterisation test: this pins current behaviour, not intended behaviour.
+
+        Regions are visited in label order rather than from a queue seeded with
+        every basepoint, so whichever basepoint reaches a region first wins. Here
+        region 4 neighbours basepoint 5 directly, yet it is labelled 3 because
+        the walk from basepoint 1 got there first. The same happens on the
+        committed pretzel_tangle example, where two regions are labelled 4
+        instead of 3. Whether that is intended is a question for the author:
+        distance also carries the p/q side of a tangle, so measuring from one
+        basepoint per side may be deliberate. Changing it would change which
+        region the algorithm fixes first, and so the committed results.
+        """
+
+        diagram = DiagramForDistance(
+            [1, 2, 3, 4, 5], [(1, 2), (2, 3), (3, 4), (4, 5)], [1, 5],
+        )
+
+        compute_distance(diagram)
+
+        assert diagram.distances() == {1: 0, 2: 1, 3: 2, 4: 3, 5: 0}
+        assert diagram.distances()[4] != 1
