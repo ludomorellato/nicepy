@@ -1,0 +1,15 @@
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Test tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Generated nicefied diagrams (reference copies live in examples/expected_output/)
+inputs/*/nicefied_diagrams/

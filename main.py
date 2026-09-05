@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 
+import os
+
 from functions.input_manager import input_manager
 from functions.printing_functions import check_the_input, saving_intermediate_steps
 from functions.application_algorithm import application_algorithm
@@ -281,7 +283,10 @@ if save_intermediate_steps:
 # If we save on file, we open the outputstram
 if save_on_file:
 
-	outputstream = open(input_path[0]+ "nicefied_diagrams/" + input_path[1][:-4] + "_nicefied_diagram.txt",'w+')
+	output_directory = input_path[0] + "nicefied_diagrams/"
+	os.makedirs(output_directory, exist_ok=True)
+
+	outputstream = open(output_directory + input_path[1][:-4] + "_nicefied_diagram.txt",'w+')
 
 	if save_details_nicefication:
 		outputstream.write(output_detail_nicefication)
