@@ -36,7 +36,6 @@ def nicefy(input_path, parameters_dict):
     type_of_diagram = input_dictionary['type_of_diagram']
     order_for_nicefication = input_dictionary['order_for_nicefication']
     possible_diagrams = input_dictionary['possible_diagrams']
-    best_looking_diagrams = input_dictionary['best_looking_diagrams']
 
     # To optimize the result of the program, we are going to try to move the
     # basepoints of the diagram. Therefore, we are going to nicefy all the
@@ -105,7 +104,6 @@ def nicefy(input_path, parameters_dict):
             final_diagram['number_iteration_algorithm'] = results_algorithm['number_iteration_algorithm']
             final_diagram['H_diagram'] = results_algorithm['H_diagram']
             final_diagram['number_of_generators'] = H_diagram.number_of_generators
-            final_diagram['was_the_one_looking_best_in_the_beginning'] = index in best_looking_diagrams
             index_winner = index
 
             # We update the new minimal number of generators
@@ -122,7 +120,6 @@ def nicefy(input_path, parameters_dict):
     output['number_iteration_algorithm'] = final_diagram['number_iteration_algorithm']
     output['number_of_generators'] = final_diagram['number_of_generators']
     output['number_of_regions'] = H_diagram.number_of_regions
-    output['was_the_one_looking_best_in_the_beginning'] = final_diagram['was_the_one_looking_best_in_the_beginning']
     output['index_winner'] = index_winner
 
     # The parts of the input that the caller needs to write the output

@@ -65,7 +65,6 @@ def application_algorithm(parameters_dict, H_diagram, minimal_number_generators,
         # We save the new diagram in the intermediate_steps dictionary
         intermediate_steps[number_iteration_algorithm] = Heegaard_diagram(H_diagram.number_intersection_points, H_diagram.number_border_points, deepcopy(H_diagram.regions_input), deepcopy(H_diagram.basepoints_dictionary), deepcopy(H_diagram.last_diagram_regions_modified))
 
-        #print(H_diagram)
         # We check that the basepoint_and_red_edges dictionary is correct
         check_on_the_correctness_of_basepoints_dictionary(H_diagram, already_notified)
 

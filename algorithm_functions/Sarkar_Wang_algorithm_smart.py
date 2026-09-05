@@ -10,7 +10,6 @@ from algorithm_functions.compare_possible_diagrams import compare_possible_diagr
 
 from functions.get_index_of_edge import get_index_of_edge
 
-#from classes.Heegaard_Diagram_class import Heegaard_diagram
 import classes.Heegaard_Diagram_class
 
 def Sarkar_Wang_algorithm_smart(diagram):
@@ -108,7 +107,6 @@ def Sarkar_Wang_algorithm_smart(diagram):
 
 			# We compute the number of generators for this new diagram
 			# and we save it in the number_generators dictionary
-			#print(f'\nComplexity and number of generators of this possible future, for key {('generalized_handleslide', key)}')
 			number_generators[('generalized_handleslide', key)] = possible_future_diagrams[('generalized_handleslide', key)].number_of_generators
 
 			# We save the total complexity in the total_complexities dictionary

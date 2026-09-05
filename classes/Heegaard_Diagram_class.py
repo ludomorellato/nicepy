@@ -13,6 +13,14 @@ from algorithm_functions.Sarkar_Wang_algorithm_smart import Sarkar_Wang_algorith
 
 
 class Heegaard_diagram:
+	"""A Heegaard diagram: its regions, its curves, and how far each region is from a basepoint.
+
+	Built from the region list read out of an input file. Constructing one also
+	recovers the alpha and beta curves, checks that every edge is used exactly
+	twice, works out the neighbours and distances of each region, and counts the
+	generators. Sarkar_Wang_algorithm() then improves the diagram one cycle at a
+	time until is_nice is set.
+	"""
 
 	def __init__(self, number_intersection_points, number_border_points, regions_input, basepoints_dictionary, last_diagram_regions_modified):
 		
@@ -130,6 +138,7 @@ class Heegaard_diagram:
 
 	# Method to update the diagram
 	def update_diagram(self):
+		"""Rebuild the diagram from the regions a move left in the NEW_* attributes."""
 
 		self.basepoints_dictionary['multiplicity_zero_regions'] = self.multiplicity_zero_regions
 		self.basepoints_dictionary['p_or_q'] = self.basepoints_p_or_q
@@ -187,6 +196,7 @@ class Heegaard_diagram:
 
 	# Method for apply the algorithm to the diagram
 	def Sarkar_Wang_algorithm(self):
+		"""Run one cycle of the algorithm on this diagram, in place."""
 		Sarkar_Wang_algorithm_smart(self)
 
 

@@ -72,7 +72,6 @@ def compute_number_generators(diagram):
             else:
                 number_generators_temp = determinant_without_sign(intersection_matrix_temp)
 
-                #print('The number of generators for this diagram is: ' + str(number_generators))
 
                 total_number_generators = total_number_generators + number_generators_temp
             
@@ -133,7 +132,6 @@ def compute_number_generators(diagram):
         else:
             number_generators = determinant_without_sign(intersection_matrix)
 
-            #print('The number of generators for this diagram is: ' + str(number_generators))
 
             return(number_generators)
 

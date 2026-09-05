@@ -1,4 +1,11 @@
 class Region:
+	"""One face of the diagram, bounded by an alternating walk of alpha and beta edges.
+
+	A region with 2n edges has badness max(n - 2, 0), so a bigon or a square has
+	badness 0. The algorithm is finished when every region away from the
+	basepoints has badness 0.
+	"""
+
 	def __init__(self, label, n, red_edges, blue_edges, border_edges, input):
 		self.label = label
 		self.number_edges = 2*n
@@ -24,6 +31,7 @@ class Region:
 
 
 	def add_neighbor(self, neighbor, color):
+			"""Record a region sharing an edge with this one, on the 'red' or 'blue' side."""
 			if color == 'red':
 				self.red_neighbors.append(neighbor)
 			elif color == 'blue':
