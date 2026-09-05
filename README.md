@@ -80,10 +80,22 @@ tangle
 | 1 | Kind of diagram: `normal`, `tangle` (a 4-ended tangle) or `rational` (built from rational tangles rather than given region by region). |
 | 2 | Number of points on the boundary. `0` for a closed diagram. |
 | 3 | Total number of intersection points, boundary points included. |
-| 4 | The regions. Each is the cyclic list of the intersection points met while walking once around its edge, all with the same orientation. `[1,11,9,2]` is a square; a region with more than four entries is *bad*, and is what the algorithm has to remove. Every edge must appear exactly twice across the whole list, once in each direction — the program checks this and tells you which edge is wrong. |
-| 5 | Where the basepoints go, as `[region, side]` pairs: `[1,0]` puts one inside the alpha arcs, `[3,1]` puts the other outside. For a `normal` diagram this is a plain list of regions instead. |
+| 4 | The regions. Each is the list of the corners of one region, read from inside it **anticlockwise**, and starting so that **the first two labels are the endpoints of an alpha edge**. `[1,11,9,2]` is a square; a region with more than four entries is *bad*, and is what the algorithm has to remove. Every edge must appear exactly twice across the whole list, once in each direction — the program checks this and tells you which edge is wrong. |
+| 5 | Where the basepoints go, as `[region, side]` pairs: `[1,0]` is the multiplicity zero region on the front of the 4-punctured sphere, `[3,1]` one on the back. Needed even when the program tries all sixteen placements, since it is what tells front from back. For a `normal` diagram this is a plain list of regions instead. |
 | 6 | One boundary point per alpha arc, in the order that names the four arcs `a`, `b`, `c`, `d` when the invariant is computed. Tangle diagrams only. |
 | 7 | The four boundary points, in the order that assigns them the Alexander gradings (1,0), (−1,0), (0,1), (0,−1). Tangle diagrams only. |
+
+Points are numbered with the boundary points first, anticlockwise around each
+boundary component, so a region is a boundary region exactly when one of its corners
+is a boundary point. The diagram itself must satisfy three conditions, which are what
+step 1 of the algorithm produces and which the program relies on:
+
+- every alpha curve meets at least one beta circle, and every beta circle meets at
+  least one alpha curve;
+- every region is a disc;
+- every alpha and beta circle carries at least three intersection points — with one
+  or two, an edge is not determined by its endpoints. The program checks this one and
+  tells you which circle is at fault.
 
 A `rational` diagram is described differently — by the tangles to build and how to glue
 them — since the program constructs the regions itself. See
