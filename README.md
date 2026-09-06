@@ -7,7 +7,7 @@
 A **Heegaard diagram** describes a 3-dimensional manifold by a surface carrying two
 families of curves, drawn here in red and blue; the curves cut the surface into regions,
 and everything one wants to compute about the manifold is read off those regions. The
-catch is that the invariant of interest — Heegaard Floer homology — is defined by
+catch is that the invariant of interest (Heegaard Floer homology) is defined by
 counting holomorphic discs, which is not something a computer can do, *unless* every
 region of the diagram is a bigon or a square. A diagram with that property is called
 **nice**, and the Sarkar–Wang algorithm turns any diagram into a nice one by repeatedly
@@ -60,7 +60,7 @@ Pass `--no-print-pqm` to leave that block out.
 
 Two cycles of the algorithm turned the 14 regions of the input into 30 regions, every one
 of them a bigon or a square. `out.txt` holds the nicefied diagram, the diagram after each
-cycle, and — for a tangle diagram — the input string for the `PQM.m` Mathematica package
+cycle, and, for a tangle diagram, the input string for the `PQM.m` Mathematica package
 that computes the invariant.
 
 Four more examples live in `inputs/`, and what each should produce is committed under
@@ -86,7 +86,7 @@ tangle
 | 1 | Kind of diagram: `normal`, `tangle` (a 4-ended tangle) or `rational` (built from rational tangles rather than given region by region). |
 | 2 | Number of points on the boundary. `0` for a closed diagram. |
 | 3 | Total number of intersection points, boundary points included. |
-| 4 | The regions. Each is the list of the corners of one region, read from inside it **anticlockwise**, and starting so that **the first two labels are the endpoints of an alpha edge**. `[1,11,9,2]` is a square; a region with more than four entries is *bad*, and is what the algorithm has to remove. Every edge must appear exactly twice across the whole list, once in each direction — the program checks this and tells you which edge is wrong. |
+| 4 | The regions. Each is the list of the corners of one region, read from inside it **anticlockwise**, and starting so that **the first two labels are the endpoints of an alpha edge**. `[1,11,9,2]` is a square; a region with more than four entries is *bad*, and is what the algorithm has to remove. Every edge must appear exactly twice across the whole list, once in each direction (the program checks this and tells you which edge is wrong). |
 | 5 | Where the basepoints go, as `[region, side]` pairs: `[1,0]` is the multiplicity zero region on the front of the 4-punctured sphere, `[3,1]` one on the back. Needed even when the program tries all sixteen placements, since it is what tells front from back. For a `normal` diagram this is a plain list of regions instead. |
 | 6 | One boundary point per alpha arc, in the order that names the four arcs `a`, `b`, `c`, `d` when the invariant is computed. Tangle diagrams only. |
 | 7 | The four boundary points, in the order that assigns them the Alexander gradings (1,0), (−1,0), (0,1), (0,−1). Tangle diagrams only. |
@@ -99,12 +99,12 @@ step 1 of the algorithm produces and which the program relies on:
 - every alpha curve meets at least one beta circle, and every beta circle meets at
   least one alpha curve;
 - every region is a disc;
-- every alpha and beta circle carries at least three intersection points — with one
-  or two, an edge is not determined by its endpoints. The program checks this one and
+- every alpha and beta circle carries at least three intersection points (with one
+  or two, an edge is not determined by its endpoints). The program checks this one and
   tells you which circle is at fault.
 
-A `rational` diagram is described differently — by the tangles to build and how to glue
-them — since the program constructs the regions itself. See
+A `rational` diagram is described differently, by the tangles to build and how to glue
+them, since the program constructs the regions itself. See
 [`inputs/rational/sum_of_rational_tangles.txt`](inputs/rational/sum_of_rational_tangles.txt).
 
 ## Project layout
