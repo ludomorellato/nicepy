@@ -49,8 +49,14 @@ Number of generators of the diagram: 82
 Number of cycle of the algorithm: 2
 Number of regions of the diagram: 30
 
+This is the string to copy and paste as PQM.m Mathematica Package input:
+
+[... the peculiar module input, fourteen lines of Mathematica ...]
+
 Nicefied diagram written to out.txt
 ```
+
+Pass `--no-print-pqm` to leave that block out.
 
 Two cycles of the algorithm turned the 14 regions of the input into 30 regions, every one
 of them a bigon or a square. `out.txt` holds the nicefied diagram, the diagram after each
@@ -123,7 +129,7 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-32 tests, about 12 seconds. They run all five examples end to end and check the
+The suite runs all five examples end to end in a few seconds, and checks the
 postcondition of the algorithm directly: every region not containing a basepoint must
 have at most four sides.
 
