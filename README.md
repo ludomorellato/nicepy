@@ -13,8 +13,10 @@ region of the diagram is a bigon or a square. A diagram with that property is ca
 **nice**, and the Sarkar–Wang algorithm turns any diagram into a nice one by repeatedly
 pushing the curves across the bad regions until none is left.
 
-`nicepy` implements that algorithm. Give it a diagram, and it hands back a nice one along
-with the data needed to compute the invariant.
+`nicepy` implements that algorithm. Give it a Heegaard diagram of any kind it accepts
+(closed, bordered, sutured, bordered sutured, or a 4-ended tangle) and it hands back a
+nice one. For a tangle it also writes the input for the Mathematica package that turns
+that diagram into the invariant.
 
 ![A finger move: the eight-sided region on the left is cut in two by pushing the blue curve along the dotted arc](docs/images/finger-move.png)
 
@@ -63,7 +65,8 @@ of them a bigon or a square. `out.txt` holds the nicefied diagram, the diagram a
 cycle, and, for a tangle diagram, the input string for the `PQM.m` Mathematica package
 that computes the invariant.
 
-Four more examples live in `inputs/`, and what each should produce is committed under
+Four more examples live in `inputs/` (a closed diagram, a bordered sutured one, and two
+built by gluing rational tangles), and what each should produce is committed under
 `examples/expected_output/`. `--verbose` narrates the run, and `python main.py --help`
 lists the rest.
 
@@ -83,7 +86,7 @@ tangle
 
 | line | meaning |
 | --- | --- |
-| 1 | Kind of diagram: `normal`, `tangle` (a 4-ended tangle) or `rational` (built from rational tangles rather than given region by region). |
+| 1 | Kind of input: `normal` (any Heegaard diagram, given region by region; see [below](#what-normal-covers)), `tangle` (a 4-ended tangle diagram) or `rational` (rational tangles to build and glue, rather than regions). |
 | 2 | Number of points on the boundary. `0` for a closed diagram. |
 | 3 | Total number of intersection points, boundary points included. |
 | 4 | The regions. Each is the list of the corners of one region, read from inside it **anticlockwise**, and starting so that **the first two labels are the endpoints of an alpha edge**. `[1,11,9,2]` is a square; a region with more than four entries is *bad*, and is what the algorithm has to remove. Every edge must appear exactly twice across the whole list, once in each direction (the program checks this and tells you which edge is wrong). |
@@ -103,8 +106,26 @@ step 1 of the algorithm produces and which the program relies on:
   or two, an edge is not determined by its endpoints). The program checks this one and
   tells you which circle is at fault.
 
-A `rational` diagram is described differently, by the tangles to build and how to glue
-them, since the program constructs the regions itself. See
+### What `normal` covers
+
+The name is unhelpful: `normal` is the general case, not a restricted one. It is any
+Heegaard diagram handed over region by region, which includes
+
+- a **closed** diagram, with no boundary points and a single basepoint, as in
+  [`inputs/normal/closed_diagram.txt`](inputs/normal/closed_diagram.txt);
+- a **bordered** diagram, with a basepoint in one of the boundary regions;
+- a **bordered sutured** diagram with alpha arcs and several basepoints, as in
+  [`inputs/normal/bordered_sutured_diagram.txt`](inputs/normal/bordered_sutured_diagram.txt),
+  provided every connected component of the complement of the alpha curves holds at
+  least one multiplicity zero region.
+
+Beta arcs are the one thing not supported.
+
+The other two kinds are conveniences on top of this. A 4-ended `tangle` diagram is a
+particular case of the above, given its own keyword because the program then also
+places the basepoints for you and emits the invariant's input. A `rational` diagram is
+described differently again, by the tangles to build and how to glue them, since the
+program constructs the regions itself; see
 [`inputs/rational/sum_of_rational_tangles.txt`](inputs/rational/sum_of_rational_tangles.txt).
 
 ## Project layout
@@ -119,7 +140,7 @@ tangles_functions/       4-ended tangles: gluing, closing up, and the invariant'
 inputs/                  five example diagrams
 examples/expected_output/  what each of them produces
 tests/                   pytest suite
-docs/documentation.pdf   the thesis this implements
+docs/documentation.pdf   the thesis this implements; Appendix A is a user manual
 ```
 
 ## Testing
@@ -139,9 +160,11 @@ Sarkar, S. and Wang, J., *An algorithm for computing some Heegaard Floer homolog
 Annals of Mathematics **171** (2010), 1213–1236.
 <https://doi.org/10.4007/annals.2010.171.1213>
 
-The derivation, and the details of this implementation, are in Appendix A of the master's
-thesis *Implementing the Sarkar–Wang Nicefication Algorithm* by Ludovico Morellato,
-included here as [`docs/documentation.pdf`](docs/documentation.pdf).
+The algorithm is derived, and generalised to the bordered, sutured, bordered sutured and
+tangle settings, in Chapter 4 of the master's thesis *Implementing the Sarkar–Wang
+Nicefication Algorithm* by Ludovico Morellato, included here as
+[`docs/documentation.pdf`](docs/documentation.pdf). **Appendix A of that thesis is a user
+manual for this program**, and documents the input format in more detail than this file.
 
 ## License
 
